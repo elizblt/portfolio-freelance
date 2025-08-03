@@ -3,7 +3,7 @@ export default function Contact() {
   return (
     <section className="py-20 px-6 max-w-2xl mx-auto text-center" id="contact">
       <h2 className="text-3xl md:text-4xl font-bold mb-8">Contact</h2>
-      <p className="text-gray-700 mb-6">Discutons de votre projet autour d'un appel rapide.</p>
+      <p className="text-gray-700 mb-6">Discutons de votre projet autour d&apos;un appel rapide.</p>
       <a
         href="https://calendly.com/votre-lien"
         className="inline-block px-6 py-3 bg-accent text-white rounded-full font-semibold mb-4"
