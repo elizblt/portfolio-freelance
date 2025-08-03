@@ -9,10 +9,13 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-24 px-6 md:px-20 bg-[#f9f9f9]" id="services">
-      <h2 className="text-3xl md:text-4xl font-extrabold text-[#111] text-center mb-12">
-        Services
+    <section className="py-24 px-6 md:px-20 bg-white text-center" id="services">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-[#111] mb-6">
+        Sites & apps modernes<br /> pour vos projets concrets
       </h2>
+      <p className="text-[#666] text-lg max-w-3xl mx-auto mb-10">
+        J’aide les indépendants, associations et petites entreprises à transformer leurs idées en expériences web efficaces et sur mesure.
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {services.map((s, i) => (
           <div

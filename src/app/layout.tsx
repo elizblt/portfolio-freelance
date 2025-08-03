@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
-import { Inter, Sora } from 'next/font/google';
-
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
-const sora = Sora({ subsets: ['latin'], variable: '--font-display' });
+import Navbar from "@/components/Navbar";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export const metadata: Metadata = {
   title: "Elise Boillat — Développeuse Web",
@@ -13,8 +10,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${inter.variable} ${sora.variable}`}>
-      <body className="font-sans">
+    <html>
+      <body className="font-sans bg-[#f9f9f9] text-[#111]">
+          <ScrollProgress />
+          <Navbar />
         {children}
       </body>
     </html>

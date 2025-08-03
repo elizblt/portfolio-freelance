@@ -25,7 +25,7 @@ export function Hero() {
           className="text-arsen-gray text-lg md:text-xl mb-4"
         >
           Je conçois des interfaces intuitives, performantes et élégantes — où chaque ligne de code a du sens.
-        </motion.p>
+        </motion.p> 
 
         <p className="text-arsen-gray text-sm mb-4">+2 ans d’expérience</p>
         <p className="text-green-500 text-sm font-medium mb-8">Disponible pour de nouvelles missions</p>

@@ -7,8 +7,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-      sans: ['var(--font-sans)'],
-      display: ['var(--font-display)'],
+        sans: ['"General Sans"', 'sans-serif'],
+        display: ['var(--font-display)'],
       },
       colors: {
         primary: "#0f172a",
