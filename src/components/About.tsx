@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <section id="about" className="py-32 px-6 md:px-20 bg-[#f9f9f9] text-center">
+    <section className="py-32 px-6 md:px-20 bg-[#f9f9f9] text-center">
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

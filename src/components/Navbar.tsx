@@ -5,12 +5,13 @@ import { Menu, X } from 'lucide-react';
 import clsx from 'clsx';
 
 const navItems = [
-  { name: 'Accueil', href: '#hero' },
+  { name: 'Accueil', href: '/' },
   { name: 'Services', href: '#services' },
   { name: 'Projets', href: '#projects' },
-  { name: 'À propos', href: '#about' },
+  { name: 'À propos', href: '/about' },
   { name: 'Contact', href: '#contact' },
 ];
+
 
 export default function Navbar() {
   const [active, setActive] = useState('');
