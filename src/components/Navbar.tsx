@@ -25,12 +25,14 @@ export default function Navbar() {
       setVisible(current < lastScroll || current < 80);
       lastScroll = current;
 
-      // Scrollspy
-      const positions = navItems.map(({ href }) => {
-        const el = document.querySelector(href);
-        if (!el) return { href, top: 999999 };
-        return { href, top: el.getBoundingClientRect().top + window.scrollY };
-      });
+      // scrollspy
+        const positions = navItems
+        .filter(({ href }) => href.startsWith('#'))
+        .map(({ href }) => {
+            const el = document.querySelector(href);
+            if (!el) return { href, top: 999999 };
+            return { href, top: el.getBoundingClientRect().top + window.scrollY };
+        });
       const scrollPos = window.scrollY + 150;
       const currentItem = positions.findLast(p => scrollPos >= p.top);
       if (currentItem) setActive(currentItem.href);

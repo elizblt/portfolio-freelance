@@ -1,30 +1,21 @@
-'use client';
-
-import About from "@/components/About";
-import { Hero } from "@/components/Hero";
-import Process from "@/components/Process";
-import Projects from "@/components/Projects";
+import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-import { motion } from "framer-motion";
-import Contact from "@/components/Contact";
+import About from "@/components/About";
+import Process from "@/components/Process";
+import CaseStudies from "@/components/CaseStudies";
+import CTASection from "@/components/CTASection";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
-
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <main>
-        <Hero />
-        <Services />
-        <Projects />
-        <About />
-        <Process />
-        <Contact />
-      </main>
-    </motion.div>
-
+    <main className="flex flex-col">
+      <Hero />
+      <Services />
+      <CaseStudies />
+      <About />
+      <Process />
+      <Testimonials />
+      <CTASection />
+    </main>
   );
 }

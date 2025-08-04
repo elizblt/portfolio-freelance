@@ -1,9 +1,14 @@
-'use client';
-import { motion } from 'framer-motion';
+"use client";
 
+import { motion } from "framer-motion";
+
+/**
+ * Section À propos enrichie.
+ * Présente le parcours, l'expérience et les valeurs d'Élise. Un bouton permet de télécharger le CV (à créer).
+ */
 export default function About() {
   return (
-    <section className="py-32 px-6 md:px-20 bg-[#f9f9f9] text-center">
+    <section id="about" className="py-32 px-6 md:px-20 bg-[#f9f9f9] text-center">
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -13,7 +18,6 @@ export default function About() {
       >
         À propos de moi
       </motion.h2>
-
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -22,18 +26,27 @@ export default function About() {
         className="max-w-3xl mx-auto text-[#666] text-lg leading-relaxed"
       >
         <p className="mb-6">
-          Je m'appelle Élise, je suis développeuse front-end freelance à Montauban. 
-          J'aide les marques, startups et structures locales à concevoir des interfaces web
-          modernes, rapides et agréables à utiliser.
+          Développeuse front‑end passionnée, je suis spécialisée dans la création d’interfaces web modernes et
+          accessibles. Après une formation en informatique et plusieurs expériences sur des projets variés, je
+          travaille aujourd’hui en freelance pour aider des entreprises, associations et startups à concrétiser
+          leurs idées.
         </p>
         <p className="mb-6">
-          Mon approche est simple : comprendre vos objectifs, proposer des solutions efficaces, 
-          et livrer un produit beau, clair et facile à faire évoluer.
+          Ma philosophie : un code propre, une UX soignée et une communication transparente. J’utilise des
+          technologies comme React, Next.js, Tailwind CSS et Node.js pour concevoir des produits performants et
+          évolutifs.
         </p>
-        <p>
-          Du site vitrine à l'application web plus complexe, je vous accompagne avec attention,
-          transparence et réactivité.
+        <p className="mb-6">
+          Outre le développement, je m’intéresse au design d’interface, à l’accessibilité et à l’optimisation des
+          performances. J’aime apprendre en continu et partager mes connaissances, notamment via des articles de blog
+          (à venir) et des ateliers.
         </p>
+        <a
+          href="/cv-elise.pdf"
+          className="inline-block mt-4 bg-[#111] text-white px-5 py-3 rounded-full text-sm font-medium hover:opacity-90 transition"
+        >
+          Télécharger mon CV
+        </a>
       </motion.div>
     </section>
   );

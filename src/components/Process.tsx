@@ -1,32 +1,33 @@
-'use client';
+"use client";
+
 import { Lightbulb, ClipboardList, Code, UploadCloud, Repeat } from "lucide-react";
 import { motion } from "framer-motion";
 
 const steps = [
   {
-    icon: <Lightbulb size={24} />,
+    icon: <Lightbulb size={28} />,
     title: "Découverte",
-    desc: "Échange initial pour comprendre vos besoins, vos contraintes et vos objectifs.",
+    desc: "Premier échange pour comprendre vos objectifs, votre secteur et vos utilisateurs. Nous définissons ensemble les priorités.",
   },
   {
-    icon: <ClipboardList size={24} />,
-    title: "Proposition",
-    desc: "Plan détaillé, périmètre du projet, délais et budget validés ensemble.",
+    icon: <ClipboardList size={28} />,
+    title: "Planification",
+    desc: "Rédaction du cahier des charges, estimation des délais et budget. Vous recevez une proposition détaillée et un calendrier clair.",
   },
   {
-    icon: <Code size={24} />,
+    icon: <Code size={28} />,
     title: "Développement",
-    desc: "Création rapide, itérative et transparente, avec validation à chaque étape.",
+    desc: "Conception et développement itératifs avec démonstrations régulières. Vous suivez l’avancement et validez chaque étape.",
   },
   {
-    icon: <UploadCloud size={24} />,
+    icon: <UploadCloud size={28} />,
     title: "Mise en ligne",
-    desc: "Recette, mise en production, tutoriel de prise en main, livrables organisés.",
+    desc: "Tests, ajustements finaux et déploiement sur un environnement de production. Je vous forme à la prise en main.",
   },
   {
-    icon: <Repeat size={24} />,
+    icon: <Repeat size={28} />,
     title: "Suivi",
-    desc: "Maintenance technique, évolutions sur mesure, accompagnement long terme.",
+    desc: "Maintenance technique, mise à jour et évolutions. Je reste disponible pour faire évoluer votre projet à long terme.",
   },
 ];
 
@@ -42,7 +43,6 @@ export default function Process() {
       >
         Mon processus en 5 étapes
       </motion.h2>
-
       <div className="grid md:grid-cols-5 gap-8">
         {steps.map((step, i) => (
           <motion.div
