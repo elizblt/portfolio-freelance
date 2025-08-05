@@ -1,8 +1,7 @@
 "use client";
 
 /**
- * Section d'appel à l'action finale.
- * Utilise un fond bleu uni discret au lieu d’un dégradé prononcé.
+ * Section d'appel à l'action finale. Une couleur unie pour un contraste fort.
  */
 export default function CTASection() {
   return (
@@ -13,7 +12,10 @@ export default function CTASection() {
       <p className="text-lg mb-8 max-w-2xl mx-auto">
         Discutons de vos idées, de vos objectifs et des solutions pour les atteindre. Je vous accompagne de la conception au déploiement.
       </p>
-      <a href="#contact" className="inline-block bg-white text-blue-600 px-8 py-3 rounded-full font-medium hover:bg-blue-50 transition">
+      <a
+        href="#contact"
+        className="inline-block bg-white text-blue-600 px-8 py-3 rounded-full font-medium hover:bg-blue-50 transition"
+      >
         Prendre rendez‑vous
       </a>
     </section>

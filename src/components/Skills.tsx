@@ -1,11 +1,31 @@
 "use client";
+
 import { Code, Laptop2, Paintbrush2, Database } from "lucide-react";
 
+/**
+ * Section Compétences. Ajoutez ou modifiez les éléments selon vos expertises.
+ */
 const skills = [
-  { icon: <Code size={28} />, title: "Développement front‑end", desc: "React, Next.js, TypeScript, Tailwind CSS pour des interfaces performantes et accessibles." },
-  { icon: <Laptop2 size={28} />, title: "Développement back‑end", desc: "Node.js, Express, Prisma, PostgreSQL pour des APIs robustes et scalables." },
-  { icon: <Paintbrush2 size={28} />, title: "Design & prototypage", desc: "Maîtrise de Figma pour créer et intégrer des maquettes pixel‑perfect." },
-  { icon: <Database size={28} />, title: "Intégration & données", desc: "Connexion à des services tiers (Stripe, Auth0, etc.) et gestion des bases de données." },
+  {
+    icon: <Code size={28} />,
+    title: "Développement front‑end",
+    desc: "React, Next.js, TypeScript, Tailwind CSS pour des interfaces performantes et accessibles.",
+  },
+  {
+    icon: <Laptop2 size={28} />,
+    title: "Développement back‑end",
+    desc: "Node.js, Express, Prisma, PostgreSQL pour des APIs robustes et scalables.",
+  },
+  {
+    icon: <Paintbrush2 size={28} />,
+    title: "Design & prototypage",
+    desc: "Maîtrise de Figma pour créer et intégrer des maquettes pixel‑perfect.",
+  },
+  {
+    icon: <Database size={28} />,
+    title: "Intégration & données",
+    desc: "Connexion à des services tiers (Stripe, Auth0, etc.) et gestion des bases de données.",
+  },
 ];
 
 export default function Skills() {

@@ -3,16 +3,14 @@
 import { Code2, LayoutDashboard, Wrench, Rocket } from "lucide-react";
 
 /**
- * Section Services modernisée.
- * Le fond bleu pastel est discret, les titres utilisent une graisse font-bold
- * et les cartes semi‑transparentes ont des bordures bleu clair.
+ * Section Services améliorée. Chaque carte est semi‑opaque avec une
+ * bordure bleue, et peut être personnalisée en fonction de vos offres.
  */
 const services = [
   {
     icon: <Code2 size={24} />,
     title: "Site vitrine",
-    desc:
-      "Je conçois des sites vitrines rapides et responsive qui valorisent votre marque et améliorent votre visibilité locale.",
+    desc: "Je conçois des sites vitrines rapides et responsive qui valorisent votre marque et améliorent votre visibilité locale.",
     benefits: [
       "Design sur mesure et identités visuelles cohérentes",
       "Optimisation SEO pour apparaître dans les recherches locales",
@@ -22,8 +20,7 @@ const services = [
   {
     icon: <LayoutDashboard size={24} />,
     title: "MVP / Application web",
-    desc:
-      "Vous avez une idée de produit ? Je développe des MVP performants avec authentification, base de données et tableau de bord.",
+    desc: "Vous avez une idée de produit ? Je développe des MVP performants avec authentification, base de données et tableau de bord.",
     benefits: [
       "Architecture scalable (Next.js, Node.js, Prisma)",
       "Paiements sécurisés via Stripe",
@@ -33,8 +30,7 @@ const services = [
   {
     icon: <Wrench size={24} />,
     title: "Maintenance & évolution",
-    desc:
-      "Je vous accompagne après la mise en ligne pour assurer la sécurité et l’évolution continue de votre site.",
+    desc: "Je vous accompagne après la mise en ligne pour assurer la sécurité et l’évolution continue de votre site.",
     benefits: [
       "Mises à jour régulières et sauvegardes automatiques",
       "Ajout de nouvelles fonctionnalités à la demande",
@@ -44,8 +40,7 @@ const services = [
   {
     icon: <Rocket size={24} />,
     title: "Intégration Figma",
-    desc:
-      "Je transforme vos maquettes Figma en pages web pixel‑perfect avec animations fluides.",
+    desc: "Je transforme vos maquettes Figma en pages web pixel‑perfect avec animations fluides.",
     benefits: [
       "Respect strict de votre design system",
       "Animations (framer-motion) et interactions modernes",

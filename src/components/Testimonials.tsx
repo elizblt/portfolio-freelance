@@ -1,9 +1,7 @@
 "use client";
 
 /**
- * Section des témoignages clients modernisée.
- * Fond pastel bleu et cartes translucides à bordure bleu clair. Les noms des
- * clients sont en font-medium pour plus de subtilité.
+ * Section Témoignages. Remplacez les avis fictifs par des retours réels.
  */
 const testimonials = [
   {
