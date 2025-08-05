@@ -1,61 +1,82 @@
 "use client";
 
-import { Code, Server, Palette, Database } from "lucide-react";
+import {
+  Code,
+  Server,
+  Palette,
+  Database,
+  Paintbrush2,
+  Wrench,
+  FolderGit2,
+  LayoutTemplate,
+  Cpu,
+} from "lucide-react";
 
-/**
- * Définition des compétences principales avec leurs icônes, titres et
- * descriptions.
- */
-const skills = [
+const skillGroups = [
   {
-    icon: Code,
-    title: "Développement front‑end",
-    desc:
-      "React, Next.js, TypeScript, Tailwind CSS pour des interfaces performantes et accessibles.",
+    label: "Front-end",
+    items: [
+      { icon: Code, title: "React / Next.js" },
+      { icon: LayoutTemplate, title: "UI / UX Design" },
+      { icon: Paintbrush2, title: "Design System & Animations" },
+    ],
   },
   {
-    icon: Server,
-    title: "Développement back‑end",
-    desc:
-      "Node.js, Express, Prisma et PostgreSQL pour des APIs robustes et scalables.",
+    label: "Back-end",
+    items: [
+      { icon: Server, title: "Node.js / Express" },
+      { icon: Database, title: "Base de données & ORM" },
+      { icon: Cpu, title: "Sécurité & Authentification" },
+    ],
   },
   {
-    icon: Palette,
-    title: "Design & prototypage",
-    desc:
-      "Maîtrise de Figma pour créer et intégrer des maquettes pixel‑perfect.",
-  },
-  {
-    icon: Database,
-    title: "Intégration & données",
-    desc:
-      "Connexion à des services tiers (Stripe, Auth0, etc.) et gestion des bases de données.",
+    label: "Méthodologie & Outils",
+    items: [
+      { icon: FolderGit2, title: "Git & Gestion de projet" },
+      { icon: Wrench, title: "DevOps & CI/CD" },
+      { icon: Palette, title: "Figma & Prototypage" },
+    ],
   },
 ];
 
-/**
- * Section Compétences.
- */
 export default function Skills() {
   return (
-    <section id="skills" className="w-full px-6 py-20 md:py-28 bg-slate-50">
-      <div className="max-w-5xl mx-auto text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-semibold mb-4">Mes compétences</h2>
-        <p className="text-neutral-600 max-w-3xl mx-auto">
-          Un éventail de compétences pour couvrir l’ensemble du cycle de vie d’un projet web.
+    <section
+      id="skills"
+      className="w-full px-6 py-24 md:py-32 lg:py-40 bg-[#f9f9f9] font-['General Sans']"
+    >
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-[#111] mb-4">
+          Mes compétences clés
+        </h2>
+        <p className="text-lg text-[#666] mb-20">
+          Une sélection minimaliste mais percutante de mes expertises principales, pensée pour séduire et inspirer.
         </p>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {skills.map(({ icon: Icon, title, desc }, i) => (
-          <div
-            key={i}
-            className="rounded-2xl border border-neutral-200 bg-white p-6 hover:shadow-md transition"
-          >
-            <Icon className="w-8 h-8 text-green-600 mb-4" />
-            <h3 className="text-xl font-medium mb-2">{title}</h3>
-            <p className="text-sm text-neutral-600">{desc}</p>
-          </div>
-        ))}
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {skillGroups.map(({ label, items }, idx) => (
+            <div
+              key={idx}
+              className="bg-white border border-[#e5e7eb] rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 group"
+            >
+              <h3 className="text-lg font-semibold text-[#111] mb-6 group-hover:translate-x-1 transition-transform">
+                {label}
+              </h3>
+              <ul className="space-y-4">
+                {items.map(({ icon: Icon, title }, i) => (
+                  <li key={i} className="flex items-center gap-4">
+                    <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#f0f0f0] to-[#e5e5e5] group-hover:scale-105 transition-transform">
+                      <Icon className="w-5 h-5 text-[#222]" />
+                    </div>
+                    <span className="text-sm text-[#111] font-medium">
+                      {title}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
