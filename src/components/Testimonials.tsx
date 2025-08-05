@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * Section des témoignages clients modernisée.
+ * Fond pastel bleu et cartes translucides à bordure bleu clair. Les noms des
+ * clients sont en font-medium pour plus de subtilité.
+ */
 const testimonials = [
   {
     name: "Marie Dupont",
@@ -17,15 +22,13 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-32 px-6 md:px-20 bg-[#f9f9f9]">
-      <h2 className="text-3xl md:text-4xl font-extrabold text-[#111] mb-12 text-center">
-        Ils parlent de moi
-      </h2>
+    <section className="py-32 px-6 md:px-20">
+      <h2 className="text-3xl md:text-4xl font-bold text-[#111] mb-12 text-center">Ils parlent de moi</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
         {testimonials.map((t, i) => (
-          <div key={i} className="bg-white rounded-xl p-8 shadow-md border border-black/5">
+          <div key={i} className="bg-white/70 backdrop-blur-lg rounded-xl p-8 shadow-lg border border-blue-100">
             <p className="text-[#333] italic mb-4">“{t.quote}”</p>
-            <p className="font-semibold text-[#111]">{t.name}</p>
+            <p className="font-medium text-[#111]">{t.name}</p>
             <p className="text-sm text-[#555]">{t.role}</p>
           </div>
         ))}
