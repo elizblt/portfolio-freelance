@@ -1,105 +1,89 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Monitor, LayoutDashboard, Wrench, Rocket, Paintbrush, Layers } from "lucide-react";
+import { Code2, Wrench, LayoutDashboard, PenLine } from "lucide-react";
 
-/**
- * Données décrivant les différents services proposés.
- */
 const services = [
   {
-    icon: Monitor,
     title: "Site vitrine",
-    desc:
-      "Je conçois des sites vitrines rapides et responsive qui valorisent votre marque et améliorent votre visibilité locale.",
+    description: "Des sites rapides, modernes et responsive pour mettre en valeur votre activité locale.",
+    icon: <LayoutDashboard size={24} />, 
+    color: "#6366f1",
   },
   {
-    icon: LayoutDashboard,
-    title: "MVP / Application web",
-    desc:
-      "Vous avez une idée de produit ? Je développe des MVP performants avec authentification, base de données et tableau de bord.",
+    title: "Application web / MVP",
+    description: "Développement de MVP performants avec authentification, base de données, et dashboard.",
+    icon: <Code2 size={24} />, 
+    color: "#10b981",
   },
   {
-    icon: Wrench,
     title: "Maintenance & évolution",
-    desc:
-      "Je vous accompagne après la mise en ligne pour assurer la sécurité et l’évolution continue de votre site.",
+    description: "Accompagnement long terme pour garantir la sécurité et l’évolution de votre site.",
+    icon: <Wrench size={24} />, 
+    color: "#f97316",
   },
   {
-    icon: Rocket,
     title: "Intégration Figma",
-    desc:
-      "Je transforme vos maquettes Figma en pages web pixel‑perfect avec animations fluides.",
+    description: "Intégration fidèle de vos maquettes Figma avec animations et responsive design.",
+    icon: <PenLine size={24} />, 
+    color: "#ec4899",
   },
 ];
 
-/**
- * Section Services.
- */
-export default function ServicesSection() {
+export default function Services() {
   return (
-    <section className="bg-[#f9f9f9] py-24 px-6 md:px-20 font-['General Sans']">
-      <div className="max-w-6xl mx-auto text-center mb-16">
-        <h2 className="text-4xl font-extrabold text-[#111] mb-4">Mes services</h2>
-        <p className="text-lg text-[#666]">
-          De la vitrine simple à l’application complète, je vous accompagne à chaque étape avec des solutions sur-mesure et des résultats concrets.
+    <section className="w-full px-6 py-24 md:py-32 lg:py-40 bg-[#f9f9f9] font-['General Sans']" id="services">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-[#111] mb-4">
+          Mes services pour donner vie à vos projets
+        </h2>
+        <p className="text-lg text-neutral-600 mb-16 max-w-2xl mx-auto">
+          De la vitrine simple à l’application complète, je vous accompagne à chaque étape avec des solutions adaptées et des résultats mesurables.
         </p>
-      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {[
-          {
-            color: "#8A63D2",
-            icon: Monitor,
-            title: "Site vitrine moderne",
-            description:
-              "Des sites rapides, responsive et impactants pour valoriser votre marque et améliorer votre présence en ligne.",
-          },
-          {
-            color: "#00C2A8",
-            icon: Layers,
-            title: "Application web (MVP)",
-            description:
-              "Je développe votre prototype ou votre outil web avec base de données, authentification et dashboard.",
-          },
-          {
-            color: "#FF6B6B",
-            icon: Wrench,
-            title: "Maintenance & évolution",
-            description:
-              "Je vous accompagne après la mise en ligne pour corriger, améliorer et faire évoluer votre site ou app.",
-          },
-          {
-            color: "#FFA600",
-            icon: Paintbrush,
-            title: "Intégration Figma",
-            description:
-              "Je transforme vos maquettes en pages web fluides, responsive et pixel-perfect avec animations.",
-          },
-        ].map(({ color, icon: Icon, title, description }, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.5, delay: i * 0.15 }}
-            className={`relative bg-white rounded-[30px] shadow-xl p-6 transform hover:rotate-0 transition-all duration-300 ${
-              i % 2 === 0 ? "rotate-[-2deg]" : "rotate-[2deg]"
-            }`}
-          >
-            <div className="absolute -top-3 left-6 h-2 w-[60px] rounded-full" style={{ backgroundColor: color }} />
-            <div className="mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              whileHover={{ scale: 1.025 }}
+              transition={{ type: "spring", stiffness: 160, damping: 18 }}
+              className="relative bg-white rounded-3xl p-8  group transition-all duration-300 overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)]"
+            >
               <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-md"
-                style={{ backgroundColor: color }}
-              >
-                <Icon className="w-5 h-5" />
+                className="absolute top-0 left-0 h-[3px] w-full rounded-t-3xl"
+                style={{ backgroundColor: service.color }}
+              />
+
+              <div className="flex items-center gap-5">
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 3 }}
+                  transition={{ type: "spring", stiffness: 160, damping: 14 }}
+                  className="w-14 h-14 flex items-center justify-center rounded-xl shrink-0"
+                  style={{
+                    backgroundColor: service.color + "0D",
+                    color: service.color,
+                    boxShadow: `0 4px 12px ${service.color}26`,
+                    border: `1px solid ${service.color}33`,
+                  }}
+                >
+                  {service.icon}
+                </motion.div>
+
+                <div className="text-left">
+                  <h3 className="text-xl font-semibold text-[#111] mb-1">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-neutral-600 leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
               </div>
-            </div>
-            <h3 className="text-xl font-bold text-[#111] mb-2">{title}</h3>
-            <p className="text-[#555] text-sm">{description}</p>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
