@@ -1,23 +1,28 @@
 "use client";
 
+import Link from "next/link";
+
 /**
- * Section d'appel à l'action finale. Une couleur unie pour un contraste fort.
+ * Section d'appel à l'action finale. Utilise un fond contrasté et un texte
+ * blanc pour attirer l'attention de l'utilisateur vers une action
+ * déterminante (par exemple prendre rendez‑vous).
  */
 export default function CTASection() {
   return (
-    <section className="py-24 px-6 md:px-20 bg-blue-600 text-white text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">
+    <section className="w-full px-6 py-20 md:py-24 bg-indigo-600 text-white text-center">
+      <h2 className="text-3xl md:text-4xl font-semibold mb-4">
         Prêt·e à concrétiser votre projet ?
       </h2>
-      <p className="text-lg mb-8 max-w-2xl mx-auto">
-        Discutons de vos idées, de vos objectifs et des solutions pour les atteindre. Je vous accompagne de la conception au déploiement.
+      <p className="max-w-3xl mx-auto mb-8">
+        Discutons de vos idées, de vos objectifs et des solutions pour les atteindre. Je
+        vous accompagne de la conception au déploiement.
       </p>
-      <a
+      <Link
         href="#contact"
-        className="inline-block bg-white text-blue-600 px-8 py-3 rounded-full font-medium hover:bg-blue-50 transition"
+        className="inline-block px-8 py-3 rounded-full bg-white text-indigo-600 font-medium hover:bg-neutral-100 transition"
       >
         Prendre rendez‑vous
-      </a>
+      </Link>
     </section>
   );
 }

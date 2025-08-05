@@ -1,7 +1,8 @@
 "use client";
 
 /**
- * Section Témoignages. Remplacez les avis fictifs par des retours réels.
+ * Liste de témoignages. Remplacez les valeurs par de vrais avis clients pour
+ * renforcer la crédibilité.
  */
 const testimonials = [
   {
@@ -18,16 +19,24 @@ const testimonials = [
   },
 ];
 
+/**
+ * Section Témoignages.
+ */
 export default function Testimonials() {
   return (
-    <section className="py-32 px-6 md:px-20">
-      <h2 className="text-3xl md:text-4xl font-bold text-[#111] mb-12 text-center">Ils parlent de moi</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+    <section id="testimonials" className="w-full px-6 py-20 md:py-28 bg-slate-50">
+      <div className="max-w-5xl mx-auto text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-4">Ils parlent de moi</h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {testimonials.map((t, i) => (
-          <div key={i} className="bg-white/70 backdrop-blur-lg rounded-xl p-8 shadow-lg border border-blue-100">
-            <p className="text-[#333] italic mb-4">“{t.quote}”</p>
-            <p className="font-medium text-[#111]">{t.name}</p>
-            <p className="text-sm text-[#555]">{t.role}</p>
+          <div
+            key={i}
+            className="p-6 rounded-2xl border border-neutral-200 bg-white shadow-sm"
+          >
+            <p className="italic text-neutral-700 mb-4">“{t.quote}”</p>
+            <p className="font-medium">{t.name}</p>
+            <p className="text-sm text-neutral-500">{t.role}</p>
           </div>
         ))}
       </div>

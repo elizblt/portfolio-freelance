@@ -1,45 +1,98 @@
-  "use client";
-  import { motion } from "framer-motion";
-  import Image from "next/image";
+"use client";
 
-  export default function Hero() {
-    return (
-      <>
-        <section className="bg-gradient-to-br from-white via-blue-50 to-blue-100 text-[#0f172a] min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-20 py-32">
-          <div className="max-w-2xl text-center md:text-left">
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-[#0f172a]"
-            >
-              Bonjour, je suis Élise.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-gray-600 text-xl md:text-2xl mb-4 max-w-lg"
-            >
-              Je conçois des sites et applications web modernes qui convertissent — alliant UX, performance et esthétique.
-            </motion.p>
-            <p className="text-blue-600 text-sm mb-2">Basée à Montauban</p>
-            <p className="text-emerald-600 text-sm font-medium mb-8">
-              2 ans d’expérience • Disponible pour de nouvelles missions
-            </p>
-            <div className="flex flex-wrap justify-center md:justify-start gap-4">
-              <a href="#contact" className="inline-flex items-center gap-2 rounded-full bg-blue-600 text-white font-medium px-6 py-3 hover:bg-blue-700 transition shadow-md">
-                Réserver un appel
-              </a>
-              <a href="#projects" className="inline-flex items-center gap-2 rounded-full bg-transparent border border-blue-600 text-blue-600 px-6 py-3 hover:bg-blue-50 transition">
-                Voir mes projets
-              </a>
-            </div>
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Mail } from "lucide-react";
+
+export default function Hero() {
+  return (
+    <section className="w-full px-6 py-24 md:py-32 lg:py-40 bg-[#f9f9f9] font-['General Sans']">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Photo en premier sur mobile */}
+        <motion.div
+          initial={{ opacity: 0, rotate: -6, scale: 0.95 }}
+          animate={{ opacity: 1, rotate: -6, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="order-1 lg:order-2 relative w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] mx-auto -rotate-6 rounded-[30px] shadow-xl"
+        >
+          <div className="relative w-full aspect-[3/4] rounded-[30px] overflow-hidden border-[6px] border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
+            <Image
+              src="/eliseHero.png"
+              alt="Portrait d’Élise"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
           </div>
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="relative w-[260px] h-[320px] md:w-[300px] md:h-[380px] rounded-[2rem] overflow-hidden shadow-lg ring-1 ring-black/10 rotate-2">
-            <Image src="/eliseHero.png" alt="Élise Boillat" fill className="object-cover" priority />
+        </motion.div>
+
+        {/* Texte à gauche */}
+        <div className="order-2 lg:order-1 flex flex-col items-start text-left text-[#111]">
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-[2rem] md:text-[2.5rem] font-bold mb-6 leading-tight tracking-tight"
+          >
+            Bonjour, je suis Elise.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg md:text-xl text-[#333] mb-4 font-medium"
+          >
+            Je conçois des interfaces web modernes et intuitives - avec du sens et de l’impact.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-sm text-neutral-500 mb-1 w-full text-center lg:text-left"
+          >
+            2 ans d’expérience
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex items-center gap-2 mb-6"
+          >
+            <span className="relative w-3 h-3">
+              <span className="absolute top-0 left-0 w-3 h-3 bg-green-500 rounded-full animate-ping opacity-75"></span>
+              <span className="absolute top-0 left-0 w-3 h-3 bg-green-500 rounded-full"></span>
+            </span>
+            <span className="text-sm text-green-600 font-medium">
+              Ouverte aux nouvelles opportunités
+            </span>
           </motion.div>
-        </section>
-      </>
-    );
-  }
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex flex-wrap justify-center lg:justify-start gap-4 items-center w-full"
+          >
+            <Link
+              href="#contact"
+              className="flex items-center gap-2 px-6 py-3 rounded-full bg-[#111] text-white hover:bg-[#222] transition text-base font-semibold shadow-[0_4px_14px_rgba(0,0,0,0.25)]"
+            >
+              <Mail className="w-4 h-4" /> Réserver un appel
+            </Link>
+            <Link
+              href="#projects"
+              className="flex items-center gap-2 px-5 py-3 rounded-full bg-white border border-neutral-300 text-[#111] hover:bg-neutral-100 transition text-base font-semibold shadow-sm"
+            >
+              <ArrowRight className="w-4 h-4" /> Voir mes projets
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
