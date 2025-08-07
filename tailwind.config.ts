@@ -2,13 +2,14 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
-    "./src/**/*.{js,ts,jsx,tsx}"
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{ts,tsx}",
+
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"General Sans"', 'sans-serif'],
-        display: ['var(--font-display)'],
+        sans: ["'General Sans'", "ui-sans-serif", "system-ui"],
       },
       colors: {
         primary: "#0f172a",

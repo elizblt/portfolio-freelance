@@ -6,7 +6,6 @@ import About from "@/components/About";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
-import StatusBadge from "@/components/StatusBadge";
 
 export default function Home() {
   return (
@@ -19,7 +18,6 @@ export default function Home() {
       <Process />
       <Testimonials />
       <Contact />
-      <StatusBadge />
     </main>
   );
 }

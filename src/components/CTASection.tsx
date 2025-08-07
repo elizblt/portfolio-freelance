@@ -9,7 +9,7 @@ import Link from "next/link";
  */
 export default function CTASection() {
   return (
-    <section className="w-full px-6 py-20 md:py-24 bg-indigo-600 text-white text-center">
+    <section className="w-full px-6 py-20 md:py-24  text-white text-center">
       <h2 className="text-3xl md:text-4xl font-semibold mb-4">
         Prêt·e à concrétiser votre projet ?
       </h2>

@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url('https://api.fontshare.com/v2/css?f[]=general-sans@200,201,300,301,400,401,500,501,600,601,700,701,1,2&display=swap" rel="stylesheet');
 
 @font-face {
   font-family: 'General Sans';
@@ -9,9 +8,15 @@
   font-display: swap;
 }
 
+
 body {
   @apply font-sans bg-[#fdfaf6] text-[#111];
 }
+
+body {
+  font-family: 'General Sans', sans-serif;
+}
+
 
 
 @custom-variant dark (&:is(.dark *));

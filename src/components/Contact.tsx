@@ -20,7 +20,7 @@ export default function Contact() {
     setForm({ name: "", email: "", message: "" });
   };
   return (
-    <section id="contact" className="w-full px-6 py-20 md:py-28 bg-white">
+    <section id="contact" className="w-full px-6 py-20 md:py-28">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-center">
           Contactez‑moi

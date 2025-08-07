@@ -43,7 +43,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="w-full px-6 py-24 md:py-32 lg:py-40 bg-[#f9f9f9] font-['General Sans']"
+      className="w-full px-6 py-24 md:py-32 lg:py-40 font-['General Sans']"
     >
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-[#111] mb-4">

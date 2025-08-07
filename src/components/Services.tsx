@@ -32,7 +32,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="w-full px-6 py-24 md:py-32 lg:py-40 bg-[#f9f9f9] font-['General Sans']" id="services">
+    <section className="w-full px-6 py-24 md:py-32 lg:py-40 font-['General Sans']" id="services">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-[#111] mb-4">
           Mes services pour donner vie à vos projets

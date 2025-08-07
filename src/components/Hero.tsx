@@ -7,14 +7,14 @@ import { ArrowRight, Mail } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="w-full px-6 py-24 md:py-32 lg:py-40 bg-[#f9f9f9] font-['General Sans']">
+    <section className="w-full px-6 py-24 md:py-32 lg:py-40 font-sans text-[#111]">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Photo en premier sur mobile */}
+        {/* IMAGE */}
         <motion.div
           initial={{ opacity: 0, rotate: -6, scale: 0.95 }}
           animate={{ opacity: 1, rotate: -6, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="order-1 lg:order-2 relative w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] mx-auto -rotate-6 rounded-[30px] shadow-xl"
+          className="order-1 lg:order-2 mx-auto w-[220px] sm:w-[240px] md:w-[260px] lg:w-[320px] -rotate-6 rounded-[30px] shadow-xl"
         >
           <div className="relative w-full aspect-[3/4] rounded-[30px] overflow-hidden border-[6px] border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
             <Image
@@ -22,14 +22,14 @@ export default function Hero() {
               alt="Portrait d’Élise"
               fill
               className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="(max-width: 768px) 60vw, 50vw"
               priority
             />
           </div>
         </motion.div>
 
-        {/* Texte à gauche */}
-        <div className="order-2 lg:order-1 flex flex-col items-start text-left text-[#111]">
+        {/* TEXTE */}
+        <div className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left mt-8 lg:mt-0">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg md:text-xl text-[#333] mb-4 font-medium"
+            className="text-lg md:text-xl text-[#333] mb-4 font-medium max-w-xl"
           >
             Je conçois des interfaces web modernes et intuitives - avec du sens et de l’impact.
           </motion.p>
@@ -52,7 +52,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-sm text-neutral-500 mb-1 w-full text-center lg:text-left"
+            className="text-sm text-neutral-500 mb-1"
           >
             2 ans d’expérience
           </motion.p>
@@ -63,9 +63,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex items-center gap-2 mb-6"
           >
-            <span className="relative w-3 h-3">
-              <span className="absolute top-0 left-0 w-3 h-3 bg-green-500 rounded-full animate-ping opacity-75"></span>
-              <span className="absolute top-0 left-0 w-3 h-3 bg-green-500 rounded-full"></span>
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
             </span>
             <span className="text-sm text-green-600 font-medium">
               Ouverte aux nouvelles opportunités
@@ -76,7 +76,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-wrap justify-center lg:justify-start gap-4 items-center w-full"
+            className="flex flex-wrap justify-center lg:justify-start gap-4 items-center"
           >
             <Link
               href="#contact"
