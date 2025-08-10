@@ -3,7 +3,9 @@
     "allow": [
       "WebFetch(domain:arsene.design)",
       "WebFetch(domain:kargul.studio)",
-      "WebFetch(domain:www.gakuyen.com)"
+      "WebFetch(domain:www.gakuyen.com)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)"
     ],
     "deny": []
   }

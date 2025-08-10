@@ -1,64 +1,41 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Wrench, LayoutDashboard, PenLine, ArrowRight, Check } from "lucide-react";
+import { Code2, ShoppingCart, Zap, ArrowRight, Check } from "lucide-react";
 
 const services = [
   {
-    title: "Site vitrine",
-    description: "Site moderne et responsive pour présenter votre activité avec élégance et professionnalisme.",
-    features: ["Design responsive", "Optimisation SEO", "Formulaire de contact", "Google Analytics", "Code optimisé", "Formation à l&apos;utilisation"],
-    icon: <LayoutDashboard size={32} />, 
-    gradient: "from-blue-500 to-blue-600",
+    title: "Sites Web",
+    description: "Sites modernes et performants pour présenter votre activité avec élégance et professionnalisme.",
+    features: ["Design responsive", "Performance optimisée", "SEO technique", "Interface intuitive"],
+    icon: <Code2 size={24} />
   },
   {
     title: "E-commerce",
-    description: "Boutique en ligne complète avec paiement sécurisé, gestion des stocks et interface d&apos;administration.",
-    features: ["Catalogue produits", "Paiement sécurisé", "Gestion commandes", "Dashboard admin", "Email automatiques", "Support technique"],
-    icon: <Code2 size={32} />, 
-    gradient: "from-slate-600 to-slate-700",
+    description: "Boutiques en ligne performantes pour développer votre activité et maximiser vos ventes.",
+    features: ["Paiements sécurisés", "Gestion produits", "Analytics intégrés", "Expérience fluide"],
+    icon: <ShoppingCart size={24} />
   },
   {
-    title: "Application web",
-    description: "Application sur mesure avec authentification, base de données et fonctionnalités métier spécifiques.",
-    features: ["Architecture évolutive", "Base de données", "Authentification", "API sécurisée", "Interface admin", "Documentation"],
-    icon: <Wrench size={32} />, 
-    gradient: "from-gray-600 to-gray-700",
-  },
-  {
-    title: "Maintenance & Support",
-    description: "Accompagnement continu pour maintenir, sécuriser et faire évoluer votre présence digitale.",
-    features: ["Mises à jour sécurité", "Sauvegardes automatiques", "Monitoring", "Support prioritaire", "Évolutions", "Conseils techniques"],
-    icon: <PenLine size={32} />, 
-    gradient: "from-blue-600 to-slate-600",
-  },
+    title: "Applications Web",
+    description: "Solutions sur mesure pour automatiser vos processus et digitaliser votre activité.",
+    features: ["Architecture scalable", "Intégrations API", "Interfaces métier", "Sécurité renforcée"],
+    icon: <Zap size={24} />
+  }
 ];
 
 export default function Services() {
   return (
-    <section className="w-full px-6 py-24 md:py-32 bg-gradient-to-b from-gray-50/50 to-white" id="services">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-6"
-          >
-            <Code2 className="w-4 h-4" />
-            Mes services
-          </motion.div>
-          
+    <section className="py-16 md:py-20 px-4 md:px-6" id="services">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="text-2xl md:text-4xl font-bold text-gray-900 mb-4"
           >
-            Des solutions digitales{" "}
-            <span className="text-blue-600">
-              sur mesure
-            </span>
+            Services
           </motion.h2>
           
           <motion.p 
@@ -66,62 +43,44 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
           >
-            De la vitrine élégante à l&apos;application complexe, je développe des solutions web modernes qui s&apos;adaptent parfaitement à vos besoins et objectifs.
+            Solutions web sur mesure pour donner vie à vos projets digitaux
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="group relative bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all duration-300"
             >
-              <div className="relative">
-                {/* Header */}
-                <div className="flex items-start justify-between mb-6">
-                  <div className={`p-4 rounded-2xl bg-gradient-to-r ${service.gradient} text-white shadow-lg`}>
-                    {service.icon}
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-
-                  {/* Features */}
-                  <ul className="space-y-3">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center gap-3">
-                        <div className={`p-1 rounded-full bg-gradient-to-r ${service.gradient}`}>
-                          <Check className="w-3 h-3 text-white" />
-                        </div>
-                        <span className="text-sm text-gray-700 font-medium">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* CTA */}
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl bg-gradient-to-r ${service.gradient} text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group/btn`}
-                >
-                  Discuter du projet
-                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                </motion.button>
+              {/* Icon */}
+              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 text-blue-600">
+                {service.icon}
               </div>
+
+              {/* Content */}
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                {service.title}
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                {service.description}
+              </p>
+
+              {/* Features */}
+              <ul className="space-y-2">
+                {service.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <span className="text-gray-600 text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>
@@ -131,23 +90,22 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="mt-12 text-center"
         >
-          <div className="bg-gradient-to-r from-blue-50 to-slate-50 rounded-3xl p-8 border border-blue-100">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Un projet spécifique en tête ?
+          <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              Un projet en tête ?
             </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Chaque projet est unique. Contactez-moi pour discuter de vos besoins et recevoir une proposition personnalisée.
+            <p className="text-gray-600 mb-6 max-w-xl mx-auto">
+              Discutons de vos besoins pour créer une solution adaptée à vos objectifs.
             </p>
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-2xl font-semibold shadow-xl hover:shadow-2xl hover:bg-blue-700 transition-all duration-300"
+              whileHover={{ scale: 1.02 }}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-medium shadow-sm hover:bg-blue-700 transition-colors duration-200"
             >
-              Demander un devis
-              <ArrowRight className="w-5 h-5" />
+              Parlons de votre projet
+              <ArrowRight className="w-4 h-4" />
             </motion.a>
           </div>
         </motion.div>

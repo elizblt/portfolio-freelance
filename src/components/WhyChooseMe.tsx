@@ -1,96 +1,72 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Clock, Heart, Lightbulb, Shield, Users } from "lucide-react";
+import { Clock, Shield, Code, Users, ArrowRight, CheckCircle } from "lucide-react";
 
-const qualities = [
+const reasons = [
   {
-    icon: <Code className="w-6 h-6" />,
-    title: "Code de qualité",
-    description: "Je privilégie un code propre, bien structuré et maintenable. Chaque ligne est pensée pour la performance et la lisibilité.",
-    color: "text-blue-600"
+    icon: <Clock size={24} />,
+    title: "Réactivité",
+    description: "Réponse sous 24h et communication transparente tout au long du projet."
   },
   {
-    icon: <Clock className="w-6 h-6" />,
-    title: "Respect des délais",
-    description: "La ponctualité est essentielle. Je planifie chaque étape du projet pour respecter les échéances convenues ensemble.",
-    color: "text-slate-600"
+    icon: <Shield size={24} />,
+    title: "Fiabilité",
+    description: "Code propre, sécurisé et maintenu selon les meilleures pratiques."
   },
   {
-    icon: <Heart className="w-6 h-6" />,
-    title: "Passion du détail",
-    description: "Chaque pixel compte. Je porte une attention particulière aux détails qui font la différence dans l&apos;expérience utilisateur.",
-    color: "text-blue-500"
+    icon: <Code size={24} />,
+    title: "Moderne",
+    description: "Technologies récentes pour des solutions performantes et évolutives."
   },
   {
-    icon: <Lightbulb className="w-6 h-6" />,
-    title: "Solutions créatives",
-    description: "Face aux défis techniques, je trouve des solutions innovantes et adaptées à vos contraintes spécifiques.",
-    color: "text-gray-700"
-  },
-  {
-    icon: <Shield className="w-6 h-6" />,
-    title: "Sécurité prioritaire",
-    description: "Vos données et celles de vos utilisateurs sont précieuses. Je développe avec les meilleures pratiques de sécurité.",
-    color: "text-slate-700"
-  },
-  {
-    icon: <Users className="w-6 h-6" />,
-    title: "Communication transparente",
-    description: "Vous êtes informé à chaque étape. Questions, suggestions et feedback sont toujours les bienvenus.",
-    color: "text-blue-700"
+    icon: <Users size={24} />,
+    title: "Accompagnement",
+    description: "Formation et support pour vous rendre autonome sur votre projet."
   }
 ];
 
-const approach = [
+const processSteps = [
   {
     step: "01",
     title: "Découverte",
-    description: "Nous échangeons sur votre projet, vos objectifs et vos contraintes pour bien cerner vos besoins."
+    description: "Analyse de vos besoins, objectifs et contraintes pour bien cerner votre projet.",
+    details: ["Appel découverte gratuit", "Audit de l'existant", "Définition du scope"]
   },
   {
-    step: "02", 
+    step: "02",
     title: "Conception",
-    description: "Je conçois l&apos;architecture et le design de votre solution en gardant l&apos;utilisateur au centre."
+    description: "Design de l'interface et architecture technique adaptée à vos besoins.",
+    details: ["Maquettes interactives", "Architecture technique", "Validation avec vous"]
   },
   {
     step: "03",
     title: "Développement",
-    description: "Développement itératif avec des points réguliers pour valider l&apos;avancement ensemble."
+    description: "Développement itératif avec points réguliers pour suivre l'avancement.",
+    details: ["Code propre et documenté", "Tests continus", "Validation étapes"]
   },
   {
     step: "04",
     title: "Livraison",
-    description: "Tests, mise en ligne et formation pour que vous soyez autonome sur votre nouvel outil."
+    description: "Mise en ligne, formation et accompagnement pour votre autonomie.",
+    details: ["Mise en production", "Formation incluse", "3 mois de support"]
   }
 ];
 
+
 export default function WhyChooseMe() {
   return (
-    <section className="py-24 md:py-32 px-6 bg-gradient-to-b from-gray-50/50 to-white">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-6"
-          >
-            <Heart className="w-4 h-4" />
-            Mon approche
-          </motion.div>
-          
+    <section id="about" className="py-16 md:py-20 px-4 md:px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Why Choose Me */}
+        <div className="text-center mb-12">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="text-2xl md:text-4xl font-bold text-gray-900 mb-4"
           >
-            Pourquoi travailler{" "}
-            <span className="text-blue-600">
-              ensemble ?
-            </span>
+            Pourquoi travailler ensemble ?
           </motion.h2>
           
           <motion.p 
@@ -98,75 +74,99 @@ export default function WhyChooseMe() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
           >
-            Découvrez les valeurs qui guident mon travail et l&apos;approche collaborative que je privilégie pour chaque projet.
+            Une approche structurée et des valeurs qui guident chaque collaboration
           </motion.p>
         </div>
 
-        {/* Qualities Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {qualities.map((quality, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {reasons.map((reason, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 group"
+              className="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300"
             >
-              <div className={`w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform ${quality.color}`}>
-                {quality.icon}
+              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-4 text-blue-600">
+                {reason.icon}
               </div>
               
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                {quality.title}
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                {reason.title}
               </h3>
               
-              <p className="text-gray-600 leading-relaxed">
-                {quality.description}
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {reason.description}
               </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Process */}
-        <div className="bg-gradient-to-r from-blue-50 to-slate-50 rounded-3xl p-8 md:p-12 border border-blue-100">
+        {/* Process Section */}
+        <div className="mb-16">
           <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-2xl md:text-3xl font-bold text-gray-900 mb-4"
+            >
               Ma méthode de travail
-            </h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Une approche structurée et collaborative pour garantir le succès de votre projet.
-            </p>
+            </motion.h3>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-lg text-gray-600 max-w-2xl mx-auto"
+            >
+              Un processus éprouvé pour garantir la réussite de votre projet
+            </motion.p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {approach.map((step, index) => (
+            {processSteps.map((step, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
+                transition={{ delay: index * 0.2, duration: 0.6 }}
                 viewport={{ once: true }}
-                className="text-center relative"
+                className="relative"
               >
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-xl font-bold mb-4 mx-auto shadow-lg">
-                  {step.step}
-                </div>
-                
-                <h4 className="text-lg font-semibold text-gray-900 mb-3">
-                  {step.title}
-                </h4>
-                
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {step.description}
-                </p>
-
                 {/* Connector Line */}
-                {index < approach.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-blue-200 to-transparent -translate-x-8 z-0" />
+                {index < processSteps.length - 1 && (
+                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-blue-200 to-gray-200 -translate-x-8 z-0" />
                 )}
+                
+                {/* Step Card */}
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 relative z-10">
+                  <div className="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-xl font-bold mb-4 mx-auto shadow-lg">
+                    {step.step}
+                  </div>
+                  
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3 text-center">
+                    {step.title}
+                  </h4>
+                  
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4 text-center">
+                    {step.description}
+                  </p>
+                  
+                  {/* Details */}
+                  <div className="space-y-2">
+                    {step.details.map((detail, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-sm text-gray-500">
+                        <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
+                        <span>{detail}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -174,25 +174,27 @@ export default function WhyChooseMe() {
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="text-center"
         >
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Prêt à démarrer votre projet ?
-          </h3>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Discutons de vos besoins et voyons ensemble comment je peux vous aider à concrétiser vos ambitions digitales.
-          </p>
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-2xl font-semibold shadow-xl hover:shadow-2xl hover:bg-blue-700 transition-all duration-300"
-          >
-            Commençons à en parler
-          </motion.a>
+          <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              Prêt à démarrer votre projet ?
+            </h3>
+            <p className="text-gray-600 mb-6 max-w-xl mx-auto">
+              Discutons de vos besoins pour créer ensemble une solution qui vous ressemble.
+            </p>
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.02 }}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-medium shadow-sm hover:bg-blue-700 transition-colors duration-200"
+            >
+              Commençons à en parler
+              <ArrowRight className="w-4 h-4" />
+            </motion.a>
+          </div>
         </motion.div>
       </div>
     </section>

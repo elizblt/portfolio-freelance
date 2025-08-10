@@ -7,7 +7,7 @@ import { ArrowRight, Mail, Award, Clock } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="w-full px-4 md:px-6 py-16 md:py-24 lg:py-32 font-sans text-gray-900 relative overflow-hidden">
+    <section id="hero" className="w-full px-4 md:px-6 py-16 md:py-24 lg:py-32 font-sans text-gray-900 relative overflow-hidden">
       {/* Subtle Background - Simplified */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50/40 to-blue-50/20 -z-10" />
       
@@ -24,7 +24,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium"
             >
               <Award className="w-3.5 h-3.5" />
-              Développeuse web • 2+ ans d&apos;expérience
+              Développeuse web freelance • Montauban
             </motion.div>
 
             <motion.h1
@@ -46,9 +46,9 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className="text-base md:text-lg text-gray-600 max-w-xl leading-relaxed"
             >
-              Je développe des{" "}
-              <strong className="text-gray-800 font-semibold">sites web modernes et performants</strong>{" "}
-              qui reflètent parfaitement votre identité et vos ambitions.
+              Développeuse web freelance passionnée, je crée des{" "}
+              <strong className="text-gray-800 font-semibold">solutions digitales sur mesure</strong>{" "}
+              qui donnent vie à vos projets et reflètent parfaitement votre identité.
             </motion.p>
 
             <motion.div
@@ -103,9 +103,9 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="text-xs text-gray-400 flex flex-wrap items-center gap-4 pt-2"
             >
-              <span>✓ Devis gratuit et détaillé</span>
-              <span>✓ Code propre et documenté</span>
-              <span>✓ Support personnalisé</span>
+              <span>✓ Devis gratuit sous 24h</span>
+              <span>✓ Code moderne et maintenable</span>
+              <span>✓ Suivi personnalisé</span>
             </motion.div>
           </div>
 

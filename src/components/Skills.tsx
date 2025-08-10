@@ -52,53 +52,20 @@ const skillGroups = [
   },
 ];
 
-const certifications = [
-  {
-    name: "React Developer",
-    organization: "Formation continue",
-    year: "2024",
-    color: "bg-blue-600 text-white"
-  },
-  {
-    name: "JavaScript Expert",
-    organization: "Certification",
-    year: "2023",
-    color: "bg-gray-800 text-white"
-  },
-  {
-    name: "Modern Web Dev",
-    organization: "Spécialisation",
-    year: "2023",
-    color: "bg-slate-600 text-white"
-  }
-];
 
 export default function Skills() {
   return (
-    <section className="w-full px-6 py-24 md:py-32 bg-gradient-to-b from-white to-gray-50/50">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 md:py-20 px-4 md:px-6 bg-gray-50">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-6"
-          >
-            <Cpu className="w-4 h-4" />
-            Expertise technique
-          </motion.div>
-          
+        <div className="text-center mb-12">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="text-2xl md:text-4xl font-bold text-gray-900 mb-4"
           >
-            Technologies{" "}
-            <span className="text-blue-600">
-              maîtrisées
-            </span>
+            Technologies
           </motion.h2>
           
           <motion.p 
@@ -106,114 +73,45 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
           >
-            Une stack technique moderne et éprouvée pour créer des applications web performantes, sécurisées et évolutives.
+            Stack technique moderne pour créer des solutions performantes
           </motion.p>
         </div>
 
         {/* Skills Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {skillGroups.map((group, groupIndex) => (
             <motion.div
               key={groupIndex}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: groupIndex * 0.2, duration: 0.6 }}
+              transition={{ delay: groupIndex * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 group"
+              className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300"
             >
-              <div className="mb-8">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${group.gradient} flex items-center justify-center mb-4 group-hover:scale-105 transition-transform`}>
-                  <Code className="w-8 h-8 text-white" />
+              <div className="mb-6">
+                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
+                  <Code className="w-6 h-6 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">
+                <h3 className="text-lg font-semibold text-gray-900">
                   {group.label}
                 </h3>
               </div>
 
-              <div className="space-y-6">
-                {group.items.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skillIndex}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: (groupIndex * 0.2) + (skillIndex * 0.1) }}
-                    viewport={{ once: true }}
-                    className="space-y-2"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <skill.icon className="w-5 h-5 text-gray-600" />
-                        <span className="font-medium text-gray-900">{skill.title}</span>
-                      </div>
-                      <span className="text-sm font-semibold text-gray-700">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: (groupIndex * 0.2) + (skillIndex * 0.1) }}
-                        viewport={{ once: true }}
-                        className={`h-full bg-gradient-to-r ${group.gradient} rounded-full`}
-                      />
-                    </div>
-                  </motion.div>
+              <div className="space-y-3">
+                {group.items.slice(0, 5).map((skill, skillIndex) => (
+                  <div key={skillIndex} className="flex items-center gap-2">
+                    <skill.icon className="w-4 h-4 text-gray-500 flex-shrink-0" />
+                    <span className="text-sm text-gray-700">{skill.title}</span>
+                  </div>
                 ))}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Certifications */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Formation continue</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {certifications.map((cert, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className={`px-6 py-4 rounded-2xl ${cert.color} shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}
-              >
-                <div className="font-semibold text-sm">{cert.name}</div>
-                <div className="text-xs opacity-90">{cert.organization} • {cert.year}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <div className="bg-gradient-to-r from-blue-50 to-slate-50 rounded-3xl p-8 border border-blue-100">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Une stack technique adaptée à vos besoins
-            </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Je sélectionne les meilleures technologies selon votre projet : performance, maintenance, évolutivité.
-            </p>
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-2xl font-semibold shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all duration-300"
-            >
-              Discuter de votre stack
-            </motion.a>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
