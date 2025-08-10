@@ -100,7 +100,7 @@ export default function Contact() {
                   {
                     icon: <CheckCircle className="w-6 h-6 text-green-500" />,
                     title: "Résultats mesurables",
-                    description: "Focus sur la performance, l'UX et la conversion de vos visiteurs."
+                    description: "Focus sur la performance, l&apos;UX et la conversion de vos visiteurs."
                   },
                   {
                     icon: <CheckCircle className="w-6 h-6 text-green-500" />,
@@ -227,7 +227,7 @@ export default function Contact() {
                     className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-colors outline-none bg-white"
                   >
                     <option value="">Sélectionner un délai</option>
-                    <option value="urgent">Urgent (moins d'1 mois)</option>
+                    <option value="urgent">Urgent (moins d&apos;1 mois)</option>
                     <option value="normal">Normal (1-3 mois)</option>
                     <option value="flexible">Flexible (3+ mois)</option>
                   </select>

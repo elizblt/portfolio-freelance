@@ -4,7 +4,7 @@ import Skills from "@/components/Skills";
 import CaseStudies from "@/components/CaseStudies";
 import About from "@/components/About";
 import Process from "@/components/Process";
-import Testimonials from "@/components/Testimonials";
+import WhyChooseMe from "@/components/WhyChooseMe";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 
@@ -17,7 +17,7 @@ export default function Home() {
       <CaseStudies />
       <About />
       <Process />
-      <Testimonials />
+      <WhyChooseMe />
       <FAQ />
       <Contact />
     </main>

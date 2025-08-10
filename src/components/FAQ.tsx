@@ -6,24 +6,24 @@ import { ChevronDown, HelpCircle } from "lucide-react";
 
 const faqs = [
   {
-    question: "Combien coûte la création d'un site web ?",
+    question: "Combien coûte la création d&apos;un site web ?",
     answer: "Les tarifs varient selon la complexité : site vitrine (1 500€+), e-commerce (3 500€+), application web (5 000€+). Chaque projet est unique, je propose toujours un devis personnalisé gratuit après étude de vos besoins."
   },
   {
     question: "Combien de temps faut-il pour développer mon projet ?",
-    answer: "Site vitrine : 7-10 jours, E-commerce : 15-21 jours, Application web : 21-30 jours. Ces délais incluent la conception, le développement, les tests et la mise en ligne. Je m'engage sur des délais réalistes et les respecte."
+    answer: "Site vitrine : 7-10 jours, E-commerce : 15-21 jours, Application web : 21-30 jours. Ces délais incluent la conception, le développement, les tests et la mise en ligne. Je m&apos;engage sur des délais réalistes et les respecte."
   },
   {
     question: "Que comprend le support après livraison ?",
-    answer: "3 mois de support gratuit inclus : corrections de bugs, mises à jour de sécurité, formation à l'utilisation, et assistance technique. Ensuite, maintenance optionnelle à 299€/mois avec nouvelles fonctionnalités."
+    answer: "3 mois de support gratuit inclus : corrections de bugs, mises à jour de sécurité, formation à l&apos;utilisation, et assistance technique. Ensuite, maintenance optionnelle à 299€/mois avec nouvelles fonctionnalités."
   },
   {
     question: "Mon site sera-t-il responsive et optimisé mobile ?",
-    answer: "Absolument ! Tous mes sites sont développés mobile-first avec un design responsive parfait sur tous les appareils. J'optimise également les performances, le SEO et l'accessibilité pour maximiser votre visibilité."
+    answer: "Absolument ! Tous mes sites sont développés mobile-first avec un design responsive parfait sur tous les appareils. J&apos;optimise également les performances, le SEO et l&apos;accessibilité pour maximiser votre visibilité."
   },
   {
     question: "Puis-je modifier mon site moi-même après livraison ?",
-    answer: "Oui ! J'utilise des CMS intuitifs (Sanity, WordPress) ou développe des interfaces d'administration sur mesure. Formation incluse + documentation complète pour vous rendre autonome dans la gestion de votre contenu."
+    answer: "Oui ! J&apos;utilise des CMS intuitifs (Sanity, WordPress) ou développe des interfaces d&apos;administration sur mesure. Formation incluse + documentation complète pour vous rendre autonome dans la gestion de votre contenu."
   },
   {
     question: "Comment se déroule un projet avec vous ?",
@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     question: "Garantissez-vous les résultats de mon site ?",
-    answer: "Je m'engage sur la qualité technique : performances, sécurité, compatibilité. Pour les résultats business (trafic, conversions), j'optimise selon les meilleures pratiques mais cela dépend aussi de votre stratégie marketing globale."
+    answer: "Je m&apos;engage sur la qualité technique : performances, sécurité, compatibilité. Pour les résultats business (trafic, conversions), j&apos;optimise selon les meilleures pratiques mais cela dépend aussi de votre stratégie marketing globale."
   }
 ];
 
@@ -136,7 +136,7 @@ export default function FAQ() {
               Une autre question ?
             </h3>
             <p className="text-gray-600 mb-6">
-              N'hésitez pas à me contacter pour discuter de votre projet en détail.
+              N&apos;hésitez pas à me contacter pour discuter de votre projet en détail.
             </p>
             <motion.a
               href="#contact"

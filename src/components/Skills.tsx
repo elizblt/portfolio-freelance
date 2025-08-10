@@ -19,7 +19,7 @@ import {
 const skillGroups = [
   {
     label: "Développement Frontend",
-    gradient: "from-blue-500 to-indigo-600",
+    gradient: "from-blue-500 to-blue-600",
     items: [
       { icon: Code, title: "React / Next.js 14", level: 95 },
       { icon: LayoutTemplate, title: "TypeScript", level: 90 },
@@ -30,7 +30,7 @@ const skillGroups = [
   },
   {
     label: "Backend & Infrastructure",
-    gradient: "from-green-500 to-emerald-600",
+    gradient: "from-slate-600 to-slate-700",
     items: [
       { icon: Server, title: "Node.js / Express", level: 85 },
       { icon: Database, title: "PostgreSQL / MongoDB", level: 82 },
@@ -41,7 +41,7 @@ const skillGroups = [
   },
   {
     label: "Design & Outils",
-    gradient: "from-purple-500 to-pink-600",
+    gradient: "from-gray-600 to-gray-700",
     items: [
       { icon: Palette, title: "Figma / Design", level: 85 },
       { icon: FolderGit2, title: "Git / GitHub", level: 92 },
@@ -54,28 +54,22 @@ const skillGroups = [
 
 const certifications = [
   {
-    name: "Next.js Certified Developer",
-    organization: "Vercel",
+    name: "React Developer",
+    organization: "Formation continue",
     year: "2024",
-    color: "bg-black text-white"
-  },
-  {
-    name: "React Advanced Patterns",
-    organization: "Epic React",
-    year: "2023",
     color: "bg-blue-600 text-white"
   },
   {
-    name: "TypeScript Expert",
-    organization: "Microsoft",
+    name: "JavaScript Expert",
+    organization: "Certification",
     year: "2023",
-    color: "bg-blue-500 text-white"
+    color: "bg-gray-800 text-white"
   },
   {
-    name: "AWS Cloud Practitioner",
-    organization: "Amazon",
+    name: "Modern Web Dev",
+    organization: "Spécialisation",
     year: "2023",
-    color: "bg-orange-500 text-white"
+    color: "bg-slate-600 text-white"
   }
 ];
 
@@ -89,7 +83,7 @@ export default function Skills() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-purple-50 text-purple-700 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-6"
           >
             <Cpu className="w-4 h-4" />
             Expertise technique
@@ -102,7 +96,7 @@ export default function Skills() {
             className="text-3xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Technologies{" "}
-            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="text-blue-600">
               maîtrisées
             </span>
           </motion.h2>
@@ -114,7 +108,7 @@ export default function Skills() {
             transition={{ delay: 0.1 }}
             className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            Une stack technique moderne et éprouvée pour créer des applications web performantes et évolutives.
+            Une stack technique moderne et éprouvée pour créer des applications web performantes, sécurisées et évolutives.
           </motion.p>
         </div>
 
@@ -178,7 +172,7 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Certifications & Formations</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-8">Formation continue</h3>
           <div className="flex flex-wrap justify-center gap-4">
             {certifications.map((cert, index) => (
               <motion.div
@@ -203,7 +197,7 @@ export default function Skills() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-3xl p-8 border border-indigo-100">
+          <div className="bg-gradient-to-r from-blue-50 to-slate-50 rounded-3xl p-8 border border-blue-100">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Une stack technique adaptée à vos besoins
             </h3>
@@ -214,7 +208,7 @@ export default function Skills() {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-2xl font-semibold shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all duration-300"
             >
               Discuter de votre stack
             </motion.a>

@@ -19,7 +19,7 @@ const testimonials = [
     role: "Fondateur",
     company: "TechStart Analytics",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    content: "Le dashboard développé par Elise gère maintenant plus de 10 000 utilisateurs actifs. L'interface est intuitive et les performances sont excellentes. Nous recommandons vivement !",
+    content: "Le dashboard développé par Elise gère maintenant plus de 10 000 utilisateurs actifs. L&apos;interface est intuitive et les performances sont excellentes. Nous recommandons vivement !",
     rating: 5,
     project: "Dashboard SaaS",
     result: "10K+ utilisateurs"
@@ -49,7 +49,7 @@ const testimonials = [
     role: "Responsable Marketing",
     company: "Digital Agency",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
-    content: "Notre nouveau site vitrine génère 3x plus de leads qu'avant. Elise a su comprendre nos enjeux business et proposer des solutions adaptées. Très satisfaite !",
+    content: "Notre nouveau site vitrine génère 3x plus de leads qu&apos;avant. Elise a su comprendre nos enjeux business et proposer des solutions adaptées. Très satisfaite !",
     rating: 5,
     project: "Site Vitrine",
     result: "3x plus de leads"
@@ -59,7 +59,7 @@ const testimonials = [
     role: "Directeur",
     company: "Local Business",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
-    content: "Excellent travail sur notre site. L'optimisation SEO a porté ses fruits : nous sommes maintenant en première page Google. Communication claire et résultats au rendez-vous.",
+    content: "Excellent travail sur notre site. L&apos;optimisation SEO a porté ses fruits : nous sommes maintenant en première page Google. Communication claire et résultats au rendez-vous.",
     rating: 5,
     project: "Site + SEO",
     result: "Top 3 Google"
@@ -154,7 +154,7 @@ export default function Testimonials() {
 
                 {/* Content */}
                 <blockquote className="text-gray-700 leading-relaxed mb-6 font-medium">
-                  "{testimonial.content}"
+                  &ldquo;{testimonial.content}&rdquo;
                 </blockquote>
 
                 {/* Project & Result */}

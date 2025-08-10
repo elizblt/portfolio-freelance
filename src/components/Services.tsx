@@ -6,43 +6,31 @@ import { Code2, Wrench, LayoutDashboard, PenLine, ArrowRight, Check } from "luci
 const services = [
   {
     title: "Site vitrine",
-    description: "Site moderne et responsive pour présenter votre activité et générer des leads qualifiés.",
-    features: ["Design responsive", "Optimisation SEO", "Formulaire de contact", "Google Analytics", "Hébergement inclus", "Support 3 mois"],
-    price: "À partir de 1 500€",
-    duration: "7-10 jours",
+    description: "Site moderne et responsive pour présenter votre activité avec élégance et professionnalisme.",
+    features: ["Design responsive", "Optimisation SEO", "Formulaire de contact", "Google Analytics", "Code optimisé", "Formation à l&apos;utilisation"],
     icon: <LayoutDashboard size={32} />, 
-    color: "#6366f1",
-    gradient: "from-indigo-500 to-purple-500",
+    gradient: "from-blue-500 to-blue-600",
   },
   {
     title: "E-commerce",
-    description: "Boutique en ligne complète avec paiement sécurisé et gestion des stocks.",
-    features: ["Catalogue produits", "Paiement Stripe", "Gestion commandes", "Dashboard admin", "Email automatiques", "Formation incluse"],
-    price: "À partir de 3 500€",
-    duration: "15-21 jours",
+    description: "Boutique en ligne complète avec paiement sécurisé, gestion des stocks et interface d&apos;administration.",
+    features: ["Catalogue produits", "Paiement sécurisé", "Gestion commandes", "Dashboard admin", "Email automatiques", "Support technique"],
     icon: <Code2 size={32} />, 
-    color: "#10b981",
-    gradient: "from-emerald-500 to-teal-500",
+    gradient: "from-slate-600 to-slate-700",
   },
   {
     title: "Application web",
-    description: "MVP ou application métier sur mesure avec authentification et base de données.",
-    features: ["Architecture évolutive", "Base de données", "Authentification", "API REST", "Dashboard", "Tests inclus"],
-    price: "À partir de 5 000€",
-    duration: "21-30 jours",
+    description: "Application sur mesure avec authentification, base de données et fonctionnalités métier spécifiques.",
+    features: ["Architecture évolutive", "Base de données", "Authentification", "API sécurisée", "Interface admin", "Documentation"],
     icon: <Wrench size={32} />, 
-    color: "#f97316",
-    gradient: "from-orange-500 to-red-500",
+    gradient: "from-gray-600 to-gray-700",
   },
   {
     title: "Maintenance & Support",
-    description: "Accompagnement long terme pour maintenir et faire évoluer votre projet digital.",
-    features: ["Mises à jour sécurité", "Sauvegardes", "Monitoring", "Support prioritaire", "Nouvelles fonctionnalités", "Rapports mensuels"],
-    price: "299€/mois",
-    duration: "Continu",
+    description: "Accompagnement continu pour maintenir, sécuriser et faire évoluer votre présence digitale.",
+    features: ["Mises à jour sécurité", "Sauvegardes automatiques", "Monitoring", "Support prioritaire", "Évolutions", "Conseils techniques"],
     icon: <PenLine size={32} />, 
-    color: "#ec4899",
-    gradient: "from-pink-500 to-rose-500",
+    gradient: "from-blue-600 to-slate-600",
   },
 ];
 
@@ -55,7 +43,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-6"
           >
             <Code2 className="w-4 h-4" />
             Mes services
@@ -67,9 +55,9 @@ export default function Services() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold text-gray-900 mb-6"
           >
-            Des solutions digitales qui{" "}
-            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              boostent votre business
+            Des solutions digitales{" "}
+            <span className="text-blue-600">
+              sur mesure
             </span>
           </motion.h2>
           
@@ -80,7 +68,7 @@ export default function Services() {
             transition={{ delay: 0.1 }}
             className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            De la vitrine professionnelle à l'application complexe, je transforme vos idées en outils digitaux performants qui génèrent des résultats mesurables.
+            De la vitrine élégante à l&apos;application complexe, je développe des solutions web modernes qui s&apos;adaptent parfaitement à vos besoins et objectifs.
           </motion.p>
         </div>
 
@@ -92,21 +80,13 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="group relative bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
+              className="group relative bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
             >
-              {/* Gradient Border */}
-              <div className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl`} />
-              
               <div className="relative">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-6">
                   <div className={`p-4 rounded-2xl bg-gradient-to-r ${service.gradient} text-white shadow-lg`}>
                     {service.icon}
-                  </div>
-                  
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-gray-900">{service.price}</div>
-                    <div className="text-sm text-gray-500">{service.duration}</div>
                   </div>
                 </div>
 
@@ -153,20 +133,20 @@ export default function Services() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-3xl p-8 border border-indigo-100">
+          <div className="bg-gradient-to-r from-blue-50 to-slate-50 rounded-3xl p-8 border border-blue-100">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Projet sur mesure ?
+              Un projet spécifique en tête ?
             </h3>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Vous avez un projet spécifique ? Contactez-moi pour un devis personnalisé et gratuit.
+              Chaque projet est unique. Contactez-moi pour discuter de vos besoins et recevoir une proposition personnalisée.
             </p>
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-2xl font-semibold shadow-xl hover:shadow-2xl hover:bg-blue-700 transition-all duration-300"
             >
-              Obtenir un devis gratuit
+              Demander un devis
               <ArrowRight className="w-5 h-5" />
             </motion.a>
           </div>
