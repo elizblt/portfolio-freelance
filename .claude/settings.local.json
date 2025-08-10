@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:arsene.design)",
+      "WebFetch(domain:kargul.studio)",
+      "WebFetch(domain:www.gakuyen.com)"
+    ],
+    "deny": []
+  }
+}
