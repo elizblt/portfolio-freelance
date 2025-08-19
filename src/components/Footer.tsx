@@ -205,20 +205,27 @@ export default function Footer() {
               <span>depuis Montauban.</span>
             </motion.div>
             
-            <div className="flex items-center gap-8 text-sm text-gray-400">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-gray-400">
               <motion.a 
-                href="#" 
+                href="/mentions-legales"
                 className="hover:text-white transition-all duration-300 hover:underline underline-offset-4"
                 whileHover={{ y: -2 }}
               >
                 Mentions légales
               </motion.a>
               <motion.a 
-                href="#" 
+                href="/politique-confidentialite"
                 className="hover:text-white transition-all duration-300 hover:underline underline-offset-4"
                 whileHover={{ y: -2 }}
               >
                 Politique de confidentialité
+              </motion.a>
+              <motion.a 
+                href="/cgv"
+                className="hover:text-white transition-all duration-300 hover:underline underline-offset-4"
+                whileHover={{ y: -2 }}
+              >
+                CGV
               </motion.a>
             </div>
           </div>

@@ -1,0 +1,289 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowLeft, FileText, Clock, Euro, Shield } from "lucide-react";
+import Link from "next/link";
+
+export default function CGV() {
+  return (
+    <div className="min-h-screen bg-arsen pt-20">
+      <div className="max-w-4xl mx-auto px-4 md:px-6 py-16">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-12"
+        >
+          <Link 
+            href="/"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-8"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Retour à l'accueil
+          </Link>
+          
+          <div className="flex items-center gap-3 mb-4">
+            <FileText className="w-8 h-8 text-blue-600" />
+            <h1 className="text-4xl font-bold text-gray-900">
+              Conditions Générales de Vente
+            </h1>
+          </div>
+          <p className="text-gray-600">
+            Conditions applicables aux prestations de développement web
+          </p>
+          <p className="text-sm text-gray-500 mt-2">
+            Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}
+          </p>
+        </motion.div>
+
+        {/* Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="bg-white rounded-2xl shadow-lg p-8 md:p-12 space-y-8"
+        >
+          {/* Préambule */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              1. Préambule
+            </h2>
+            <div className="text-gray-700 space-y-4">
+              <p>
+                Les présentes Conditions Générales de Vente (CGV) s'appliquent à toutes les prestations de services 
+                de développement web réalisées par Élise Boillat, auto-entrepreneur.
+              </p>
+              <p>
+                Toute commande implique l'acceptation sans réserve des présentes conditions et la renonciation 
+                à ses propres conditions d'achat ou autres conditions.
+              </p>
+            </div>
+          </section>
+
+          {/* Prestations */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              2. Prestations proposées
+            </h2>
+            <div className="text-gray-700 space-y-4">
+              <p>Élise Boillat propose les prestations suivantes :</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Développement de sites web sur mesure</li>
+                <li>Création d'applications web</li>
+                <li>Développement e-commerce</li>
+                <li>Maintenance et support technique</li>
+                <li>Optimisation et refonte de sites existants</li>
+                <li>Formation et conseil</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* Commandes et devis */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <FileText className="w-6 h-6 text-blue-600" />
+              3. Commandes et devis
+            </h2>
+            <div className="text-gray-700 space-y-4">
+              <p>
+                <strong>Devis :</strong> Tout projet fait l'objet d'un devis détaillé gratuit, valable 30 jours. 
+                Le devis signé et accompagné de l'acompte vaut commande.
+              </p>
+              <p>
+                <strong>Bon de commande :</strong> La commande ne sera considérée comme définitive 
+                qu'après signature du devis et réception de l'acompte.
+              </p>
+              <p>
+                <strong>Modifications :</strong> Toute modification en cours de réalisation fera l'objet 
+                d'un avenant au contrat initial.
+              </p>
+            </div>
+          </section>
+
+          {/* Prix et facturation */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <Euro className="w-6 h-6 text-green-600" />
+              4. Prix et facturation
+            </h2>
+            <div className="text-gray-700 space-y-4">
+              <p>
+                <strong>Prix :</strong> Les prix sont exprimés en euros, hors taxes (TVA non applicable - 
+                article 293 B du CGI).
+              </p>
+              <p>
+                <strong>Modalités de paiement :</strong>
+              </p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Acompte de 50% à la commande</li>
+                <li>Solde à la livraison du projet</li>
+                <li>Paiement par virement bancaire ou chèque</li>
+                <li>Délai de paiement : 30 jours maximum</li>
+              </ul>
+              <p>
+                <strong>Retard de paiement :</strong> En cas de retard, des pénalités de 3 fois le taux d'intérêt légal 
+                seront appliquées, plus une indemnité forfaitaire de 40€ pour frais de recouvrement.
+              </p>
+            </div>
+          </section>
+
+          {/* Délais */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <Clock className="w-6 h-6 text-orange-600" />
+              5. Délais d'exécution
+            </h2>
+            <div className="text-gray-700 space-y-4">
+              <p>
+                Les délais annoncés sont donnés à titre indicatif et courent à compter de la signature du devis 
+                et de la réception de l'acompte.
+              </p>
+              <p>
+                Ces délais peuvent être prolongés en cas de :
+              </p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Retard dans la fourniture des éléments nécessaires par le client</li>
+                <li>Modifications demandées en cours de réalisation</li>
+                <li>Cas de force majeure</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* Obligations du client */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              6. Obligations du client
+            </h2>
+            <div className="text-gray-700 space-y-4">
+              <p>Le client s'engage à :</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Fournir tous les éléments nécessaires à la réalisation du projet</li>
+                <li>Répondre dans les délais convenus aux demandes de validation</li>
+                <li>S'assurer qu'il dispose des droits sur tous les contenus fournis</li>
+                <li>Respecter les échéances de paiement</li>
+                <li>Informer de tout changement pouvant impacter le projet</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* Livraison et validation */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              7. Livraison et validation
+            </h2>
+            <div className="text-gray-700 space-y-4">
+              <p>
+                <strong>Livraison :</strong> La livraison s'effectue par mise en ligne sur un serveur de test 
+                ou par remise des fichiers selon les modalités convenues.
+              </p>
+              <p>
+                <strong>Validation :</strong> Le client dispose de 15 jours pour valider le travail livré. 
+                Passé ce délai sans retour, la prestation sera considérée comme acceptée.
+              </p>
+              <p>
+                <strong>Corrections :</strong> Les corrections mineures sont incluses (2 séries maximum). 
+                Les modifications importantes feront l'objet d'un devis complémentaire.
+              </p>
+            </div>
+          </section>
+
+          {/* Propriété intellectuelle */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <Shield className="w-6 h-6 text-purple-600" />
+              8. Propriété intellectuelle
+            </h2>
+            <div className="text-gray-700 space-y-4">
+              <p>
+                <strong>Transfert de propriété :</strong> La propriété intellectuelle du travail réalisé 
+                est transférée au client après paiement intégral.
+              </p>
+              <p>
+                <strong>Droit de référence :</strong> Élise Boillat se réserve le droit de mentionner 
+                sa participation au projet à des fins de référence et de promotion.
+              </p>
+              <p>
+                <strong>Code source :</strong> Le client devient propriétaire du code développé spécifiquement 
+                pour son projet, à l'exclusion des frameworks et librairies tiers.
+              </p>
+            </div>
+          </section>
+
+          {/* Garanties */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              9. Garanties et maintenance
+            </h2>
+            <div className="text-gray-700 space-y-4">
+              <p>
+                <strong>Garantie :</strong> Une garantie de bon fonctionnement de 3 mois est offerte 
+                à compter de la livraison, couvrant les dysfonctionnements liés au développement.
+              </p>
+              <p>
+                <strong>Maintenance :</strong> La maintenance (mises à jour, sauvegardes, sécurité) 
+                peut faire l'objet d'un contrat séparé.
+              </p>
+              <p>
+                <strong>Exclusions :</strong> Sont exclus de la garantie les problèmes liés à :
+              </p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>L'hébergement et l'infrastructure</li>
+                <li>Les modifications apportées par le client ou des tiers</li>
+                <li>L'utilisation non conforme du site</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* Résiliation */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              10. Résiliation
+            </h2>
+            <div className="text-gray-700 space-y-4">
+              <p>
+                En cas de manquement grave de l'une des parties à ses obligations, 
+                le contrat pourra être résilié de plein droit 8 jours après mise en demeure restée sans effet.
+              </p>
+              <p>
+                En cas de résiliation, le client reste redevable des sommes dues pour le travail effectué 
+                jusqu'à la date de résiliation.
+              </p>
+            </div>
+          </section>
+
+          {/* Responsabilité */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              11. Limitation de responsabilité
+            </h2>
+            <div className="text-gray-700 space-y-4">
+              <p>
+                La responsabilité d'Élise Boillat est limitée au montant du contrat. 
+                Elle ne peut être tenue responsable des dommages indirects.
+              </p>
+              <p>
+                Le client est seul responsable de l'usage qu'il fait du site livré et de son contenu.
+              </p>
+            </div>
+          </section>
+
+          {/* Droit applicable */}
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              12. Droit applicable et litiges
+            </h2>
+            <div className="text-gray-700 space-y-4">
+              <p>
+                Les présentes CGV sont régies par le droit français. En cas de litige, 
+                une solution amiable sera recherchée avant toute action judiciaire.
+              </p>
+              <p>
+                À défaut, les tribunaux de Montauban seront seuls compétents.
+              </p>
+            </div>
+          </section>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
