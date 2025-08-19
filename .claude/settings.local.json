@@ -5,7 +5,8 @@
       "WebFetch(domain:kargul.studio)",
       "WebFetch(domain:www.gakuyen.com)",
       "Bash(npm run build:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:x.com)"
     ],
     "deny": []
   }
