@@ -74,7 +74,7 @@ export default function Hero() {
     setter({ x: "50%", y: "50%" });
   };
 
-  const heading = "Créons votre présence digitale";
+  const heading = "Développeuse web freelance";
   const words = heading.split(" ");
 
   return (
@@ -133,7 +133,7 @@ export default function Hero() {
                     },
                   }}
                   className="inline-block mr-[.35ch]"
-                  style={["présence", "digitale"].includes(word.toLowerCase()) ? { color: ACCENT } : undefined}
+                  style={["web", "freelance"].includes(word.toLowerCase()) ? { color: ACCENT } : undefined}
                 >
                   {word}
                 </motion.span>
@@ -160,9 +160,7 @@ export default function Hero() {
               transition={{ duration: reduce ? 0 : 0.4, delay: reduce ? 0 : 0.12 }}
               className="mt-4 text-[clamp(16px,4vw,19px)] text-slate-600 max-w-prose leading-relaxed"
             >
-              Transformez votre vision en{" "}
-              <b>site web performant</b> qui attire vos clients et fait grandir votre business. 
-              Design moderne, référencement optimisé et résultats garantis.
+              Je crée des sites et applications adaptés à votre activité, avec une <b>approche claire et personnalisée</b>, du design au code.
             </motion.p>
 
             {/* Meta Info */}
