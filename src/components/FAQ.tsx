@@ -1,137 +1,188 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
-const faqs = [
+type FAQItem = { id: string; question: string; answer: string };
+
+const RAW_FAQS: Omit<FAQItem, "id">[] = [
   {
     question: "Quels types de projets réalisez-vous ?",
-    answer: "Je développe des sites vitrine modernes, des boutiques e-commerce, des applications web sur mesure et assure la maintenance de sites existants. Chaque projet est étudié selon vos besoins spécifiques et votre budget."
+    answer:
+      "Sites vitrine, boutiques en ligne et applications web sur mesure. J’adapte la solution à votre activité et à vos objectifs (prise de contact, réservation, vente, etc.).",
   },
   {
-    question: "Combien de temps faut-il pour développer mon site ?",
-    answer: "Site vitrine simple : 1-2 semaines, Site avec fonctionnalités avancées : 3-4 semaines, E-commerce : 4-6 semaines. Ces délais incluent la conception, le développement, les tests et la mise en ligne."
+    question: "Combien de temps prend un projet ?",
+    answer:
+      "Cela dépend du périmètre et de la rapidité des retours. Après un échange, je vous envoie un planning indicatif et les étapes clés. L’idée est d’avancer au bon rythme, sans surprise.",
   },
   {
-    question: "Quel est votre processus de travail ?",
-    answer: "1) Découverte : Analyse de vos besoins et objectifs 2) Conception : Design et architecture technique 3) Développement : Code moderne avec suivi régulier 4) Livraison : Formation et mise en ligne avec 3 mois de support inclus."
+    question: "Pourrai-je mettre mon site à jour facilement ?",
+    answer:
+      "Oui. On définit ensemble ce que vous souhaitez modifier (textes, images, actualités…). Soit je prévois des zones simples à éditer, soit je m’occupe des mises à jour pour vous.",
   },
   {
-    question: "Mon site sera-t-il optimisé pour mobile ?",
-    answer: "Absolument ! Tous mes sites sont développés mobile-first avec un design responsive. J'optimise également les performances, le SEO et l'accessibilité pour maximiser votre visibilité sur tous les appareils."
+    question: "Gérez-vous le nom de domaine et l’hébergement ?",
+    answer:
+      "Oui, je peux m’en charger ou vous guider pas à pas. L’objectif : un site en ligne, rapide et sécurisé, avec des sauvegardes et un certificat HTTPS.",
   },
   {
-    question: "Proposez-vous de la formation ?",
-    answer: "Oui, la formation est incluse dans tous mes projets. Je vous accompagne pour que vous soyez autonome dans la gestion de votre contenu, avec documentation complète et support technique pendant 3 mois."
+    question: "Et le référencement (SEO) ?",
+    answer:
+      "Le site est conçu pour être lisible par Google : structure propre, temps de chargement, balises et accessibilité. Pour aller plus loin (contenus, netlinking), je vous conseille une stratégie adaptée.",
   },
   {
-    question: "Travaillez-vous avec tous types d'entreprises ?",
-    answer: "Je collabore avec des entrepreneurs, startups, PME et associations. Mon approche s'adapte à chaque contexte : solutions simples pour débuter ou architectures plus complexes selon vos besoins métier."
+    question: "Travaillez-vous avec tous types d’entreprises ?",
+    answer:
+      "Oui. J’accompagne artisans, commerces de proximité, associations et PME. L’approche reste simple : comprendre vos clients et traduire ça en un site clair et efficace.",
   },
   {
-    question: "Comment se passe le suivi après livraison ?",
-    answer: "3 mois de support gratuit sont inclus : corrections de bugs, mises à jour de sécurité, assistance technique et conseils. Ensuite, je propose un service de maintenance optionnel pour les évolutions futures."
+    question: "Y a-t-il une formation et un suivi après la mise en ligne ?",
+    answer:
+      "Oui. Je vous montre comment utiliser votre site et je reste disponible pour les ajustements. Un accompagnement de démarrage est inclus, puis une maintenance peut être mise en place si besoin.",
   },
   {
-    question: "Utilisez-vous des technologies modernes ?",
-    answer: "Je privilégie les technologies actuelles et éprouvées : Next.js, React, TypeScript, Tailwind CSS. Cela garantit des sites rapides, sécurisés, maintenables et évolutifs dans le temps."
-  }
+    question: "Quelles technologies utilisez-vous ?",
+    answer:
+      "Des outils actuels et fiables (ex. React/Next.js, TypeScript, Tailwind). Concrètement : un site rapide, durable et facile à faire évoluer.",
+  },
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [open, setOpen] = useState<string | null>(null);
+
+  // on fabrique des ids stables (utile pour aria-controls et le JSON-LD)
+  const faqs: FAQItem[] = useMemo(
+    () =>
+      RAW_FAQS.map((f, i) => ({
+        id: `faq-${i + 1}`,
+        ...f,
+      })),
+    []
+  );
+
+  // JSON-LD SEO
+  const jsonLd = useMemo(
+    () => ({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    }),
+    [faqs]
+  );
 
   return (
-    <section className="py-16 md:py-20 px-4 md:px-6">
+    <section id="faq" className="py-16 md:py-20 px-4 md:px-6">
+      {/* SEO JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-4xl font-bold text-gray-900 mb-4"
+            className="text-2xl md:text-4xl font-extrabold text-gray-900"
           >
             Questions fréquentes
           </motion.h2>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            transition={{ delay: 0.06 }}
+            className="mt-3 text-lg text-gray-600"
           >
-            Retrouvez les réponses aux questions les plus courantes
+            Les points clés pour démarrer sereinement.
           </motion.p>
         </div>
 
-        {/* FAQ List */}
+        {/* Liste */}
         <div className="space-y-3">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+          {faqs.map((f, idx) => {
+            const isOpen = open === f.id;
+            return (
+              <motion.article
+                key={f.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.04 }}
+                className={`rounded-2xl border ring-1 bg-white shadow-sm overflow-hidden transition-all
+                  ${isOpen ? "border-gray-200 ring-gray-200" : "border-gray-100 ring-gray-100 hover:shadow-md"}`}
               >
-                <h3 className="text-base font-semibold text-gray-900 pr-6">
-                  {faq.question}
-                </h3>
-                <ChevronDown 
-                  className={`w-5 h-5 text-blue-600 flex-shrink-0 transition-transform duration-300 ${
-                    openIndex === index ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-              
-              <motion.div
-                initial={false}
-                animate={{
-                  height: openIndex === index ? "auto" : 0,
-                  opacity: openIndex === index ? 1 : 0
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="overflow-hidden"
-              >
-                <div className="px-6 pb-6">
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-          ))}
+                <button
+                  className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900"
+                  aria-expanded={isOpen}
+                  aria-controls={`${f.id}-panel`}
+                  onClick={() => setOpen(isOpen ? null : f.id)}
+                >
+                  <h3 className="text-base md:text-lg font-semibold text-gray-900 pr-6">
+                    {f.question}
+                  </h3>
+                  <ChevronDown
+                    className={`h-5 w-5 text-gray-900 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      id={`${f.id}-panel`}
+                      role="region"
+                      aria-labelledby={f.id}
+                      key="content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.28, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-6">
+                        <p className="text-gray-600 text-sm leading-relaxed">{f.answer}</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.article>
+            );
+          })}
         </div>
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              Une autre question ?
-            </h3>
-            <p className="text-gray-600 mb-6">
-              N&apos;hésitez pas à me contacter pour discuter de votre projet.
+          <div className="rounded-2xl border border-gray-100 bg-white/70 p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+            <h3 className="text-xl font-semibold text-gray-900">Une autre question ?</h3>
+            <p className="mt-2 text-gray-600">
+              Écrivez-moi un message rapide : je vous réponds sous 24&nbsp;h ouvrées.
             </p>
-            <motion.a
+            <a
               href="#contact"
-              whileHover={{ scale: 1.02 }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-medium shadow-sm hover:bg-blue-700 transition-colors duration-200"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-full
+                         bg-neutral-950 px-7 py-3 text-sm font-semibold text-white
+                         ring-1 ring-neutral-900 transition-all duration-200
+                         hover:scale-[1.02] hover:shadow-[0_12px_40px_rgba(0,0,0,0.14)]"
             >
               Me contacter
-            </motion.a>
+              <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
           </div>
         </motion.div>
       </div>

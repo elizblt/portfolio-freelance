@@ -6,7 +6,8 @@
       "WebFetch(domain:www.gakuyen.com)",
       "Bash(npm run build:*)",
       "Bash(npm run dev:*)",
-      "WebFetch(domain:x.com)"
+      "WebFetch(domain:x.com)",
+      "mcp__ide__getDiagnostics"
     ],
     "deny": []
   }
