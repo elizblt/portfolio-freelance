@@ -1,5 +1,7 @@
 # Portfolio Freelance – Stack & Qualité de code
 
+[![CI](https://github.com/elise/portfolio-freelance/actions/workflows/ci.yml/badge.svg)](https://github.com/elise/portfolio-freelance/actions/workflows/ci.yml)
+
 Application front-end basée sur Next.js 15 (App Router), React 19, TypeScript et Tailwind CSS 4. La qualité de code est assurée par ESLint (Flat config), Prettier (avec tri Tailwind), Commitlint et des hooks Git via Husky + lint-staged.
 
 ## Prérequis
@@ -113,6 +115,13 @@ Types possibles: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `bu
 - `.vscode/settings.json` force Prettier comme formateur et applique `source.fixAll.eslint` à l’enregistrement.
 - Si le formatage ne s’applique pas: vérifier que l’extension Prettier est activée et que le Workspace utilise la config du dépôt.
 
----
+## Intégration Continue (CI)
 
-Si besoin, on peut ajouter un workflow CI (lint + typecheck + build) — dites-moi si vous voulez que je l’installe.
+- Workflow: `.github/workflows/ci.yml`
+- Déclencheurs: `pull_request` (toutes branches) et `push` sur `main` + `workflow_dispatch` (manuel)
+- Paths ignorés: changements Markdown (`**/*.md`) n’exécutent pas la CI
+- Concurrency: annule les exécutions en double par branche
+- Job `quality`: `format:check` → `lint` → `typecheck` → `commitlint`
+- Job `build` (après quality): `npm run build`
+- Environnement: Node 20, cache npm
+- Tests: bloc commenté prêt à activer si besoin
