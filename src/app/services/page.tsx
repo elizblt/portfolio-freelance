@@ -11,21 +11,16 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
-/** THEME (aligné héros) */
-const SLATE = {
-  50:"#F8FAFC",100:"#F1F5F9",200:"#E2E8F0",300:"#CBD5E1",
-  600:"#475569",700:"#334155",800:"#1F2937",900:"#0F172A",
-};
 const ACCENT = "#2F6FE3"; // micro-accent (icônes/puces uniquement)
 
 /** ANIM */
 const container = {
   hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: .5, ease: [0.22,1,0.36,1] } },
+  show: { opacity: 1, y: 0 },
 };
-const item = (d=0) => ({
+const item = () => ({
   hidden: { opacity: 0, y: 22 },
-  show: { opacity: 1, y: 0, transition: { delay: d, duration: .55, ease: [0.22,1,0.36,1] } },
+  show: { opacity: 1, y: 0 },
 });
 
 type Service = {
@@ -33,7 +28,7 @@ type Service = {
   title: string;
   punch: string;
   desc: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   bullets: string[];
   deliverables: string[];
 };
@@ -132,7 +127,7 @@ export default function ServicesPage() {
             return (
               <motion.article
                 key={s.slug}
-                variants={item(i * 0.05)}
+                variants={item()}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, margin: "-10% 0px" }}
@@ -224,7 +219,7 @@ export default function ServicesPage() {
             ].map((step, i) => (
               <motion.div
                 key={step.t}
-                variants={item(i * 0.05)}
+                variants={item()}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
@@ -266,7 +261,7 @@ export default function ServicesPage() {
             ].map((f, i) => (
               <motion.div
                 key={f.q}
-                variants={item(i * 0.05)}
+                variants={item()}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}

@@ -19,14 +19,14 @@ export default function MentionsLegales() {
             className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
-            Retour à l'accueil
+            Retour à l&rsquo;accueil
           </Link>
           
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Mentions légales
           </h1>
           <p className="text-gray-600">
-            Informations légales concernant le site web d'Élise Boillat
+            Informations légales concernant le site web d&rsquo;Élise Boillat
           </p>
         </motion.div>
 
@@ -99,12 +99,12 @@ export default function MentionsLegales() {
             </h2>
             <div className="text-gray-700 space-y-4">
               <p>
-                L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. 
+                L&rsquo;ensemble de ce site relève de la législation française et internationale sur le droit d&rsquo;auteur et la propriété intellectuelle. 
                 Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.
               </p>
               <p>
-                La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite 
-                sauf autorisation expresse d'Élise Boillat.
+                La reproduction de tout ou partie de ce site sur un support électronique quel qu&rsquo;il soit est formellement interdite 
+                sauf autorisation expresse d&rsquo;Élise Boillat.
               </p>
             </div>
           </section>
@@ -116,7 +116,7 @@ export default function MentionsLegales() {
             </h2>
             <div className="text-gray-700 space-y-4">
               <p>
-                Les informations contenues sur ce site sont aussi précises que possible et le site remis à jour à différentes périodes de l'année, 
+                Les informations contenues sur ce site sont aussi précises que possible et le site remis à jour à différentes périodes de l&rsquo;année, 
                 mais peut toutefois contenir des inexactitudes ou des omissions.
               </p>
               <p>
@@ -133,8 +133,8 @@ export default function MentionsLegales() {
             </h2>
             <div className="text-gray-700 space-y-4">
               <p>
-                Les sites internet peuvent offrir des liens vers d'autres sites internet ou d'autres ressources disponibles sur Internet. 
-                Élise Boillat ne dispose d'aucun moyen pour contrôler les sites en connexion avec son site internet.
+                Les sites internet peuvent offrir des liens vers d&rsquo;autres sites internet ou d&rsquo;autres ressources disponibles sur Internet. 
+                Élise Boillat ne dispose d&rsquo;aucun moyen pour contrôler les sites en connexion avec son site internet.
               </p>
               <p>
                 Élise Boillat ne répond pas de la disponibilité de tels sites et sources externes, ni ne la garantit. 
@@ -150,7 +150,7 @@ export default function MentionsLegales() {
             </h2>
             <div className="text-gray-700">
               <p>
-                Tout litige en relation avec l'utilisation du site est soumis au droit français. 
+                Tout litige en relation avec l&rsquo;utilisation du site est soumis au droit français. 
                 En dehors des cas où la loi ne le permet pas, il est fait attribution exclusive de juridiction aux tribunaux compétents de Montauban.
               </p>
             </div>

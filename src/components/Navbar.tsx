@@ -103,7 +103,7 @@ export default function Navbar() {
       </a>
 
       <nav
-        ref={navRef as any}
+        ref={navRef}
         data-nav
         className={clsx(
           'fixed inset-x-0 top-0 z-50 transition-transform duration-300',

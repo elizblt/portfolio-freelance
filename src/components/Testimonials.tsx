@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Star, Quote, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -171,10 +172,12 @@ export default function Testimonials() {
 
                 {/* Author */}
                 <div className="flex items-center gap-4">
-                  <img
+                  <Image
                     src={testimonial.avatar}
                     alt={testimonial.name}
                     className="w-12 h-12 rounded-2xl object-cover"
+                    width={48}
+                    height={48}
                   />
                   <div>
                     <div className="font-semibold text-gray-900">{testimonial.name}</div>

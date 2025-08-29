@@ -19,7 +19,7 @@ export default function PolitiqueConfidentialite() {
             className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
-            Retour à l'accueil
+            Retour à l&rsquo;accueil
           </Link>
           
           <div className="flex items-center gap-3 mb-4">
@@ -51,7 +51,7 @@ export default function PolitiqueConfidentialite() {
             </h2>
             <div className="text-gray-700 space-y-4">
               <p>
-                Élise Boillat, développeuse web freelance, s'engage à protéger la confidentialité de vos données personnelles. 
+                Élise Boillat, développeuse web freelance, s&rsquo;engage à protéger la confidentialité de vos données personnelles. 
                 Cette politique de confidentialité explique comment nous collectons, utilisons, stockons et protégeons vos informations 
                 lorsque vous utilisez notre site web.
               </p>
@@ -112,8 +112,8 @@ export default function PolitiqueConfidentialite() {
               <p className="mb-4">Le traitement de vos données repose sur :</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li><strong>Intérêt légitime :</strong> pour répondre à vos demandes et améliorer nos services</li>
-                <li><strong>Exécution d'un contrat :</strong> pour la fourniture de nos services</li>
-                <li><strong>Consentement :</strong> pour l'envoi de communications marketing</li>
+                <li><strong>Exécution d&rsquo;un contrat :</strong> pour la fourniture de nos services</li>
+                <li><strong>Consentement :</strong> pour l&rsquo;envoi de communications marketing</li>
                 <li><strong>Obligation légale :</strong> pour la conservation de certaines données</li>
               </ul>
             </div>
@@ -180,12 +180,12 @@ export default function PolitiqueConfidentialite() {
             <div className="text-gray-700 space-y-4">
               <p>Conformément au RGPD, vous disposez des droits suivants :</p>
               <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Droit d'accès :</strong> connaître les données que nous détenons sur vous</li>
+                <li><strong>Droit d&rsquo;accès :</strong> connaître les données que nous détenons sur vous</li>
                 <li><strong>Droit de rectification :</strong> corriger vos données inexactes</li>
-                <li><strong>Droit à l'effacement :</strong> supprimer vos données (sous conditions)</li>
+                <li><strong>Droit à l&rsquo;effacement :</strong> supprimer vos données (sous conditions)</li>
                 <li><strong>Droit à la limitation :</strong> limiter le traitement de vos données</li>
                 <li><strong>Droit à la portabilité :</strong> récupérer vos données dans un format structuré</li>
-                <li><strong>Droit d'opposition :</strong> vous opposer au traitement (sous conditions)</li>
+                <li><strong>Droit d&rsquo;opposition :</strong> vous opposer au traitement (sous conditions)</li>
                 <li><strong>Droit de retrait du consentement :</strong> retirer votre consentement à tout moment</li>
               </ul>
 
@@ -212,7 +212,7 @@ export default function PolitiqueConfidentialite() {
             <div className="text-gray-700 space-y-4">
               <p>
                 Ce site utilise uniquement des cookies techniques nécessaires au bon fonctionnement du site. 
-                Aucun cookie de tracking ou publicitaire n'est utilisé.
+                Aucun cookie de tracking ou publicitaire n&rsquo;est utilisé.
               </p>
               <p>
                 Vous pouvez configurer votre navigateur pour refuser les cookies, mais cela pourrait affecter 
@@ -228,7 +228,7 @@ export default function PolitiqueConfidentialite() {
             </h2>
             <div className="text-gray-700 space-y-4">
               <p>
-                Pour toute question concernant cette politique de confidentialité ou l'exercice de vos droits :
+                Pour toute question concernant cette politique de confidentialité ou l&rsquo;exercice de vos droits :
               </p>
               
               <div className="bg-gray-50 p-4 rounded-lg">
@@ -242,8 +242,8 @@ export default function PolitiqueConfidentialite() {
               </div>
 
               <p>
-                Vous avez également le droit d'introduire une réclamation auprès de la Commission Nationale 
-                de l'Informatique et des Libertés (CNIL) si vous estimez que vos droits ne sont pas respectés.
+                Vous avez également le droit d&rsquo;introduire une réclamation auprès de la Commission Nationale 
+                de l&rsquo;Informatique et des Libertés (CNIL) si vous estimez que vos droits ne sont pas respectés.
               </p>
             </div>
           </section>

@@ -304,30 +304,6 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Bottom Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8"
-        >
-          {[
-            { number: "12+", label: "Projets réalisés", icon: <Code className="w-5 h-5 text-blue-500" /> },
-            { number: "100%", label: "Clients satisfaits", icon: <Star className="w-5 h-5 text-yellow-500" /> },
-            { number: "24h", label: "Délai de réponse", icon: <Clock className="w-5 h-5 text-green-500" /> },
-            { number: "3 mois", label: "Support inclus", icon: <Zap className="w-5 h-5 text-purple-500" /> }
-          ].map((stat, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <div className="flex justify-center mb-3">{stat.icon}</div>
-              <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">{stat.number}</div>
-              <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Scroll Indicator */}
