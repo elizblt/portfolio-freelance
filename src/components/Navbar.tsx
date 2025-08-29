@@ -2,18 +2,20 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import clsx from 'clsx';
 
 const navItems = [
-  { name: 'Accueil', href: '#hero' },
-  { name: 'Services', href: '#services' },
+  { name: 'Accueil', href: '/' },
+  { name: 'Services', href: '/services' },
   { name: 'Projets', href: '#projects' },
   { name: 'Méthode', href: '#process' },
   { name: 'FAQ', href: '#faq' },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [active, setActive] = useState<string>('#hero');
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -21,6 +23,14 @@ export default function Navbar() {
   const [progress, setProgress] = useState(0);
   const lastScroll = useRef(0);
   const navRef = useRef<HTMLElement | null>(null);
+
+  // Helper function to determine if nav item should be active
+  const isActiveItem = (href: string) => {
+    if (href === '/' && pathname === '/') return true;
+    if (href === '/services' && pathname === '/services') return true;
+    if (href.startsWith('#') && pathname === '/') return active === href;
+    return false;
+  };
 
   // lock body scroll when mobile menu open + Esc to close
   useEffect(() => {
@@ -74,7 +84,10 @@ export default function Navbar() {
 
   const smoothTo = (href: string) => {
     setOpen(false);
-    if (!href.startsWith('#')) return;
+    if (!href.startsWith('#')) {
+      window.location.href = href;
+      return;
+    }
     const target = document.querySelector(href);
     if (!target) return;
     const headerH = navRef.current?.getBoundingClientRect().height ?? 72;
@@ -109,11 +122,7 @@ export default function Navbar() {
           <div className="flex h-16 md:h-20 items-center justify-between">
             {/* Brand */}
             <Link
-              href="#hero"
-              onClick={(e) => {
-                e.preventDefault();
-                smoothTo('#hero');
-              }}
+              href="/"
               className="font-extrabold tracking-tight text-gray-900 text-lg md:text-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 rounded"
             >
               Élise Boillat
@@ -123,27 +132,46 @@ export default function Navbar() {
             <ul className="hidden md:flex items-center gap-7">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <a
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      smoothTo(item.href);
-                    }}
-                    aria-current={active === item.href ? 'page' : undefined}
-                    className={clsx(
-                      'relative inline-flex items-center text-sm font-medium transition-colors',
-                      active === item.href ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'
-                    )}
-                  >
-                    {item.name}
-                    {/* underline indicator */}
-                    <span
+                  {item.href.startsWith('#') ? (
+                    <a
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        smoothTo(item.href);
+                      }}
+                      aria-current={isActiveItem(item.href) ? 'page' : undefined}
                       className={clsx(
-                        'absolute -bottom-1 left-0 h-[2px] rounded-full bg-gray-900 transition-all',
-                        active === item.href ? 'w-full opacity-100' : 'w-0 opacity-0'
+                        'relative inline-flex items-center text-sm font-medium transition-colors',
+                        isActiveItem(item.href) ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'
                       )}
-                    />
-                  </a>
+                    >
+                      {item.name}
+                      {/* underline indicator */}
+                      <span
+                        className={clsx(
+                          'absolute -bottom-1 left-0 h-[2px] rounded-full bg-gray-900 transition-all',
+                          isActiveItem(item.href) ? 'w-full opacity-100' : 'w-0 opacity-0'
+                        )}
+                      />
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className={clsx(
+                        'relative inline-flex items-center text-sm font-medium transition-colors',
+                        isActiveItem(item.href) ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'
+                      )}
+                    >
+                      {item.name}
+                      {/* underline indicator */}
+                      <span
+                        className={clsx(
+                          'absolute -bottom-1 left-0 h-[2px] rounded-full bg-gray-900 transition-all',
+                          isActiveItem(item.href) ? 'w-full opacity-100' : 'w-0 opacity-0'
+                        )}
+                      />
+                    </Link>
+                  )}
                 </li>
               ))}
 
@@ -215,23 +243,38 @@ export default function Navbar() {
 
         <nav className="py-2">
           {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={(e) => {
-                e.preventDefault();
-                smoothTo(item.href);
-              }}
-              className={clsx(
-                'block px-5 py-4 text-base font-medium transition',
-                active === item.href
-                  ? 'text-gray-900 bg-gray-50 border-l-4 border-neutral-900'
-                  : 'text-gray-700 hover:bg-gray-50'
-              )}
-              aria-current={active === item.href ? 'page' : undefined}
-            >
-              {item.name}
-            </a>
+            item.href.startsWith('#') ? (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  smoothTo(item.href);
+                }}
+                className={clsx(
+                  'block px-5 py-4 text-base font-medium transition',
+                  isActiveItem(item.href)
+                    ? 'text-gray-900 bg-gray-50 border-l-4 border-neutral-900'
+                    : 'text-gray-700 hover:bg-gray-50'
+                )}
+                aria-current={isActiveItem(item.href) ? 'page' : undefined}
+              >
+                {item.name}
+              </a>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={clsx(
+                  'block px-5 py-4 text-base font-medium transition',
+                  isActiveItem(item.href)
+                    ? 'text-gray-900 bg-gray-50 border-l-4 border-neutral-900'
+                    : 'text-gray-700 hover:bg-gray-50'
+                )}
+              >
+                {item.name}
+              </Link>
+            )
           ))}
 
           <div className="px-5 pt-2">
