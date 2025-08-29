@@ -203,7 +203,7 @@ export default function Hero() {
                   aria-label="Parlons de votre projet"
                   onMouseMove={(e) => handleCtaMove(e, setCtaSpot)}
                   onMouseLeave={() => handleCtaLeave(setCtaSpot)}
-                  className="group relative inline-flex min-h-[48px] w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-slate-900 to-slate-800 px-6 py-3.5 text-sm font-semibold whitespace-nowrap text-white shadow-[0_14px_36px_rgba(15,23,42,.22)] transition-[transform,box-shadow] duration-300 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-800 sm:text-base md:w-auto"
+                  className="group relative inline-flex min-h-[48px] w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-slate-900 to-slate-800 px-6 py-3.5 text-sm font-semibold whitespace-nowrap text-white shadow-[0_14px_36px_rgba(15,23,42,.22)] transition-[transform,box-shadow] duration-300 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-800 sm:text-base md:w-auto"
                 >
                   <span
                     aria-hidden
@@ -240,7 +240,7 @@ export default function Hero() {
                   href="#projects"
                   onMouseMove={(e) => handleCtaMove(e, setSecSpot)}
                   onMouseLeave={() => handleCtaLeave(setSecSpot)}
-                  className="group relative inline-flex min-h-[48px] w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-white/90 px-6 py-3.5 text-sm font-semibold whitespace-nowrap text-slate-900 shadow-sm backdrop-blur transition-[transform,box-shadow] duration-300 hover:shadow-md focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-300 sm:text-base md:w-auto"
+                  className="group relative inline-flex min-h-[48px] w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-white/90 px-6 py-3.5 text-sm font-semibold whitespace-nowrap text-slate-900 shadow-sm backdrop-blur transition-[transform,box-shadow] duration-300 hover:shadow-md focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-300 sm:text-base md:w-auto"
                 >
                   <span
                     aria-hidden
