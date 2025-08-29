@@ -9,17 +9,17 @@ import Link from "next/link";
  */
 export default function CTASection() {
   return (
-    <section className="w-full px-6 py-20 md:py-24  text-white text-center">
-      <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+    <section className="w-full px-6 py-20 text-center text-white md:py-24">
+      <h2 className="mb-4 text-3xl font-semibold md:text-4xl">
         Prêt·e à concrétiser votre projet ?
       </h2>
-      <p className="max-w-3xl mx-auto mb-8">
-        Discutons de vos idées, de vos objectifs et des solutions pour les atteindre. Je
-        vous accompagne de la conception au déploiement.
+      <p className="mx-auto mb-8 max-w-3xl">
+        Discutons de vos idées, de vos objectifs et des solutions pour les
+        atteindre. Je vous accompagne de la conception au déploiement.
       </p>
       <Link
         href="#contact"
-        className="inline-block px-8 py-3 rounded-full bg-white text-indigo-600 font-medium hover:bg-neutral-100 transition"
+        className="inline-block rounded-full bg-white px-8 py-3 font-medium text-indigo-600 transition hover:bg-neutral-100"
       >
         Prendre rendez‑vous
       </Link>

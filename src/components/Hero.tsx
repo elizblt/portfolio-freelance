@@ -20,27 +20,27 @@ const ACCENT = "#2F6FE3";
 const ACCENT_SOFT = "#CFE3F6";
 
 const FEATURES = [
-  { 
-    icon: <Zap className="h-4 w-4" />, 
-    title: "Sur-mesure", 
-    description: "conçu pour votre activité" 
+  {
+    icon: <Zap className="h-4 w-4" />,
+    title: "Sur-mesure",
+    description: "conçu pour votre activité",
   },
-  { 
-    icon: <ShieldCheck className="h-4 w-4" />, 
-    title: "Rapide & accessible", 
-    description: "dès la conception" 
+  {
+    icon: <ShieldCheck className="h-4 w-4" />,
+    title: "Rapide & accessible",
+    description: "dès la conception",
   },
-  { 
-    icon: <Sparkles className="h-4 w-4" />, 
-    title: "Accompagnement", 
-    description: "de A à Z" 
+  {
+    icon: <Sparkles className="h-4 w-4" />,
+    title: "Accompagnement",
+    description: "de A à Z",
   },
 ];
 
 export default function Hero() {
   const reduce = useReducedMotion();
   const cardRef = useRef<HTMLDivElement | null>(null);
-  
+
   const [tilt, setTilt] = useState({ rx: 0, ry: 0, tz: 0 });
   const [ctaSpot, setCtaSpot] = useState({ x: "50%", y: "50%" });
   const [secSpot, setSecSpot] = useState({ x: "50%", y: "50%" });
@@ -49,13 +49,13 @@ export default function Hero() {
     if (reduce) return;
     const rect = cardRef.current?.getBoundingClientRect();
     if (!rect) return;
-    
+
     const px = (e.clientX - rect.left) / rect.width;
     const py = (e.clientY - rect.top) / rect.height;
-    setTilt({ 
-      rx: -(py - 0.5) * 8, 
-      ry: (px - 0.5) * 10, 
-      tz: 12 
+    setTilt({
+      rx: -(py - 0.5) * 8,
+      ry: (px - 0.5) * 10,
+      tz: 12,
     });
   };
 
@@ -90,21 +90,19 @@ export default function Hero() {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -z-10 left-1/2 top-[-140px] h-[360px] w-[360px] -translate-x-1/2 rounded-full opacity-30 blur-3xl bg-blue-200"
+        className="pointer-events-none absolute top-[-140px] left-1/2 -z-10 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-blue-200 opacity-30 blur-3xl"
       />
 
-      <div className="mx-auto max-w-6xl px-4 md:px-6 py-20 sm:py-16 md:py-20 lg:py-24">
+      <div className="mx-auto max-w-6xl px-4 py-20 sm:py-16 md:px-6 md:py-20 lg:py-24">
         <div className="grid grid-cols-1 items-center gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-16">
-          
           {/* Content */}
           <div className="order-1 text-center lg:text-left">
-            
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: reduce ? 0 : 0.4 }}
-              className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium shadow-sm backdrop-blur bg-white/85 text-slate-600"
+              className="inline-flex items-center gap-2 rounded-full bg-white/85 px-3 py-1 text-xs font-medium text-slate-600 shadow-sm backdrop-blur"
             >
               <MapPin className="h-3.5 w-3.5" />
               Développeuse web freelance • Montauban
@@ -114,11 +112,11 @@ export default function Hero() {
             <motion.h1
               initial="hidden"
               animate="show"
-              variants={{ 
-                hidden: {}, 
-                show: { transition: { staggerChildren: reduce ? 0 : 0.04 } } 
+              variants={{
+                hidden: {},
+                show: { transition: { staggerChildren: reduce ? 0 : 0.04 } },
               }}
-              className="mt-3 font-extrabold leading-[1.06] tracking-tight text-[clamp(28px,7vw,54px)] max-w-[20ch] sm:max-w-[28ch]"
+              className="mt-3 max-w-[20ch] text-[clamp(28px,7vw,54px)] leading-[1.06] font-extrabold tracking-tight sm:max-w-[28ch]"
               style={{ textWrap: "balance" }}
             >
               {words.map((word, i) => (
@@ -126,14 +124,21 @@ export default function Hero() {
                   key={i}
                   variants={{
                     hidden: { y: 14, opacity: 0 },
-                    show: { 
-                      y: 0, 
-                      opacity: 1, 
-                      transition: { duration: reduce ? 0 : 0.45, ease: "easeOut" } 
+                    show: {
+                      y: 0,
+                      opacity: 1,
+                      transition: {
+                        duration: reduce ? 0 : 0.45,
+                        ease: "easeOut",
+                      },
                     },
                   }}
-                  className="inline-block mr-[.35ch]"
-                  style={["web", "freelance"].includes(word.toLowerCase()) ? { color: ACCENT } : undefined}
+                  className="mr-[.35ch] inline-block"
+                  style={
+                    ["web", "freelance"].includes(word.toLowerCase())
+                      ? { color: ACCENT }
+                      : undefined
+                  }
                 >
                   {word}
                 </motion.span>
@@ -144,12 +149,12 @@ export default function Hero() {
             <motion.div
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ 
-                duration: reduce ? 0 : 0.6, 
-                ease: "easeOut", 
-                delay: reduce ? 0 : 0.2 
+              transition={{
+                duration: reduce ? 0 : 0.6,
+                ease: "easeOut",
+                delay: reduce ? 0 : 0.2,
               }}
-              className="mt-3 h-1 w-28 rounded-full mx-auto lg:mx-0"
+              className="mx-auto mt-3 h-1 w-28 rounded-full lg:mx-0"
               style={{ background: ACCENT_SOFT }}
             />
 
@@ -157,16 +162,20 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: reduce ? 0 : 0.4, delay: reduce ? 0 : 0.12 }}
-              className="mt-4 text-[clamp(16px,4vw,19px)] text-slate-600 max-w-prose leading-relaxed"
+              transition={{
+                duration: reduce ? 0 : 0.4,
+                delay: reduce ? 0 : 0.12,
+              }}
+              className="mt-4 max-w-prose text-[clamp(16px,4vw,19px)] leading-relaxed text-slate-600"
             >
-              Je crée des sites et applications adaptés à votre activité, avec une <b>approche claire et personnalisée</b>, du design au code.
+              Je crée des sites et applications adaptés à votre activité, avec
+              une <b>approche claire et personnalisée</b>, du design au code.
             </motion.p>
 
             {/* Meta Info */}
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-sm text-slate-700 lg:justify-start">
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-700 sm:gap-4 lg:justify-start">
               <StatusBadge />
-              <span className="opacity-40 hidden sm:inline">•</span>
+              <span className="hidden opacity-40 sm:inline">•</span>
               <span className="inline-flex items-center gap-2">
                 <Clock className="h-4 w-4 text-slate-500" />
                 Réponse sous 24h
@@ -177,13 +186,16 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: reduce ? 0 : 0.45, delay: reduce ? 0 : 0.2 }}
-              className="mt-6 flex flex-col items-stretch justify-center gap-3 md:flex-row md:items-center md:gap-4 lg:justify-start px-2 sm:px-0"
+              transition={{
+                duration: reduce ? 0 : 0.45,
+                delay: reduce ? 0 : 0.2,
+              }}
+              className="mt-6 flex flex-col items-stretch justify-center gap-3 px-2 sm:px-0 md:flex-row md:items-center md:gap-4 lg:justify-start"
             >
               {/* Primary CTA */}
-              <motion.div 
-                whileHover={{ y: reduce ? 0 : -1 }} 
-                whileTap={{ scale: reduce ? 1 : 0.98 }} 
+              <motion.div
+                whileHover={{ y: reduce ? 0 : -1 }}
+                whileTap={{ scale: reduce ? 1 : 0.98 }}
                 className="inline-flex"
               >
                 <Link
@@ -191,7 +203,7 @@ export default function Hero() {
                   aria-label="Parlons de votre projet"
                   onMouseMove={(e) => handleCtaMove(e, setCtaSpot)}
                   onMouseLeave={() => handleCtaLeave(setCtaSpot)}
-                  className="group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm sm:text-base font-semibold text-white bg-gradient-to-b from-slate-900 to-slate-800 shadow-[0_14px_36px_rgba(15,23,42,.22)] transition-[transform,box-shadow] duration-300 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-800 overflow-hidden min-h-[48px] w-full md:w-auto whitespace-nowrap"
+                  className="group relative inline-flex min-h-[48px] w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-slate-900 to-slate-800 px-6 py-3.5 text-sm font-semibold whitespace-nowrap text-white shadow-[0_14px_36px_rgba(15,23,42,.22)] transition-[transform,box-shadow] duration-300 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-800 sm:text-base md:w-auto"
                 >
                   <span
                     aria-hidden
@@ -208,7 +220,8 @@ export default function Hero() {
                     transition={{ duration: 0.85, ease: "easeInOut" }}
                     style={{
                       transform: "translateX(-120%)",
-                      background: "linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent)",
+                      background:
+                        "linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent)",
                     }}
                   />
                   <Mail className="h-4 w-4 translate-y-[1px]" />
@@ -218,16 +231,16 @@ export default function Hero() {
               </motion.div>
 
               {/* Secondary CTA */}
-              <motion.div 
-                whileHover={{ y: reduce ? 0 : -1 }} 
-                whileTap={{ scale: reduce ? 1 : 0.98 }} 
+              <motion.div
+                whileHover={{ y: reduce ? 0 : -1 }}
+                whileTap={{ scale: reduce ? 1 : 0.98 }}
                 className="inline-flex"
               >
                 <Link
                   href="#projects"
                   onMouseMove={(e) => handleCtaMove(e, setSecSpot)}
                   onMouseLeave={() => handleCtaLeave(setSecSpot)}
-                  className="group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm sm:text-base font-semibold text-slate-900 bg-white/90 backdrop-blur shadow-sm hover:shadow-md transition-[transform,box-shadow] duration-300 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-300 overflow-hidden min-h-[48px] w-full md:w-auto whitespace-nowrap"
+                  className="group relative inline-flex min-h-[48px] w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-white/90 px-6 py-3.5 text-sm font-semibold whitespace-nowrap text-slate-900 shadow-sm backdrop-blur transition-[transform,box-shadow] duration-300 hover:shadow-md focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-300 sm:text-base md:w-auto"
                 >
                   <span
                     aria-hidden
@@ -254,11 +267,11 @@ export default function Hero() {
                 className="absolute -inset-6 -z-10 rounded-[32px] opacity-60 blur-2xl"
                 style={{ boxShadow: "0 40px 120px rgba(2,6,23,.15)" }}
               />
-              <div 
+              <div
                 ref={cardRef}
                 onMouseMove={handleCardMove}
                 onMouseLeave={handleCardLeave}
-                className="relative aspect-[3/4] w-[200px] xs:w-[240px] sm:w-[280px] md:w-[320px] lg:w-[360px] rounded-[20px] sm:rounded-[30px] bg-white p-1.5 sm:p-2 shadow-xl"
+                className="xs:w-[240px] relative aspect-[3/4] w-[200px] rounded-[20px] bg-white p-1.5 shadow-xl sm:w-[280px] sm:rounded-[30px] sm:p-2 md:w-[320px] lg:w-[360px]"
                 style={{ transformStyle: "preserve-3d", perspective: "1200px" }}
               >
                 <motion.div
@@ -283,7 +296,7 @@ export default function Hero() {
         </div>
 
         {/* Features */}
-        <div className="mt-8 sm:mt-12 flex flex-col lg:grid lg:grid-cols-3 gap-3 text-sm px-2 sm:px-0">
+        <div className="mt-8 flex flex-col gap-3 px-2 text-sm sm:mt-12 sm:px-0 lg:grid lg:grid-cols-3">
           {FEATURES.map((feature, i) => (
             <motion.div
               key={i}
@@ -291,19 +304,20 @@ export default function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: reduce ? 0 : 0.35, delay: i * 0.05 }}
-              className="flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-2 rounded-xl bg-white/90 px-3 sm:px-4 py-2.5 sm:py-3 shadow-sm backdrop-blur transition-shadow hover:shadow-lg hover:bg-white text-center"
+              className="flex flex-col items-center justify-center gap-1 rounded-xl bg-white/90 px-3 py-2.5 text-center shadow-sm backdrop-blur transition-shadow hover:bg-white hover:shadow-lg sm:px-4 sm:py-3 lg:flex-row lg:gap-2"
             >
               <div className="flex items-center gap-2">
                 {feature.icon}
-                <span className="font-semibold text-slate-900">{feature.title}</span>
+                <span className="font-semibold text-slate-900">
+                  {feature.title}
+                </span>
               </div>
-              <span className="text-slate-600 text-xs lg:text-sm leading-tight">
+              <span className="text-xs leading-tight text-slate-600 lg:text-sm">
                 {feature.description}
               </span>
             </motion.div>
           ))}
         </div>
-
       </div>
 
       {/* Scroll Indicator */}

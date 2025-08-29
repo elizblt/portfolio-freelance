@@ -3,8 +3,10 @@ import "@/app/globals.css";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Elise Boillat - Développeuse Web Freelance | Sites & Applications Modernes",
-  description: "Développeuse web freelance experte à Montauban. Création de sites vitrines, e-commerce et applications web avec React, Next.js et TypeScript. Devis gratuit sous 24h.",
+  title:
+    "Elise Boillat - Développeuse Web Freelance | Sites & Applications Modernes",
+  description:
+    "Développeuse web freelance experte à Montauban. Création de sites vitrines, e-commerce et applications web avec React, Next.js et TypeScript. Devis gratuit sous 24h.",
   keywords: [
     "développeur web freelance",
     "création site internet",
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
     "Montauban",
     "développeur frontend",
     "TypeScript",
-    "Tailwind CSS"
+    "Tailwind CSS",
   ],
   authors: [{ name: "Elise Boillat" }],
   creator: "Elise Boillat",
@@ -25,8 +27,10 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "https://elise-boillat.dev",
     siteName: "Elise Boillat - Développeuse Web",
-    title: "Elise Boillat - Développeuse Web Freelance | Sites & Applications Modernes",
-    description: "Développeuse web freelance experte à Montauban. Création de sites vitrines, e-commerce et applications web avec React, Next.js et TypeScript.",
+    title:
+      "Elise Boillat - Développeuse Web Freelance | Sites & Applications Modernes",
+    description:
+      "Développeuse web freelance experte à Montauban. Création de sites vitrines, e-commerce et applications web avec React, Next.js et TypeScript.",
     images: [
       {
         url: "/eliseHero.png",
@@ -39,7 +43,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Elise Boillat - Développeuse Web Freelance",
-    description: "Création de sites vitrines, e-commerce et applications web modernes avec React & Next.js",
+    description:
+      "Création de sites vitrines, e-commerce et applications web modernes avec React & Next.js",
     images: ["/eliseHero.png"],
   },
   robots: {
@@ -58,15 +63,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html>
       <head>
-      <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@200,201,300,301,400,401,500,501,600,601,700,701,1,2&display=swap" />
-
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=general-sans@200,201,300,301,400,401,500,501,600,601,700,701,1,2&display=swap"
+        />
       </head>
-      <body className="font-sans bg-[#f9f9f9] text-[#111]">
-          <Navbar />
+      <body className="bg-[#f9f9f9] font-sans text-[#111]">
+        <Navbar />
         {children}
       </body>
     </html>

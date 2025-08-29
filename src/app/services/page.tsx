@@ -38,8 +38,7 @@ const SERVICES: Service[] = [
     slug: "site-vitrine",
     title: "Site vitrine",
     punch: "Être trouvé et donner confiance.",
-    desc:
-      "Un site clair, rapide et moderne pour présenter votre activité et faciliter la prise de contact.",
+    desc: "Un site clair, rapide et moderne pour présenter votre activité et faciliter la prise de contact.",
     icon: Layout,
     bullets: [
       "Design sobre & responsive",
@@ -58,8 +57,7 @@ const SERVICES: Service[] = [
     slug: "ecommerce",
     title: "E-commerce simple",
     punch: "Vendre sans complexité.",
-    desc:
-      "Boutique légère et sécurisée pour tester une offre ou vendre une sélection de produits.",
+    desc: "Boutique légère et sécurisée pour tester une offre ou vendre une sélection de produits.",
     icon: ShoppingCart,
     bullets: [
       "Paiement sécurisé",
@@ -78,8 +76,7 @@ const SERVICES: Service[] = [
     slug: "app-metier",
     title: "Outil / app métier",
     punch: "Gagner du temps au quotidien.",
-    desc:
-      "Petit outil web, portail client ou espace réservé pour digitaliser un process précis.",
+    desc: "Petit outil web, portail client ou espace réservé pour digitaliser un process précis.",
     icon: Wrench,
     bullets: [
       "Fonctionnalité sur-mesure",
@@ -99,22 +96,22 @@ const SERVICES: Service[] = [
 export default function ServicesPage() {
   return (
     <main className="relative min-h-screen bg-white text-neutral-900">
-      <div className="mx-auto max-w-6xl px-4 md:px-6 py-16 md:py-20">
+      <div className="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
         {/* Header */}
         <motion.header
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="mb-10 md:mb-14 text-center"
+          className="mb-10 text-center md:mb-14"
         >
           <p className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-600 shadow-sm ring-1 ring-slate-200">
             Services
           </p>
-          <h1 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
+          <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
             Des solutions web claires, sans complexité
           </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-slate-600 text-lg">
+          <p className="mx-auto mt-3 max-w-2xl text-lg text-slate-600">
             Je conçois des sites et outils utiles, lisibles pour vos clients, et
             simples à gérer pour vous.
           </p>
@@ -122,7 +119,7 @@ export default function ServicesPage() {
 
         {/* Services grid */}
         <section className="grid gap-6 md:grid-cols-3">
-          {SERVICES.map((s, i) => {
+          {SERVICES.map((s, _i) => {
             const Icon = s.icon;
             return (
               <motion.article
@@ -144,18 +141,27 @@ export default function ServicesPage() {
                 />
 
                 {/* Icon */}
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white ring-1 ring-slate-200 shadow-sm">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-slate-200">
                   <Icon className="h-6 w-6 text-slate-900" />
                 </div>
 
-                <h2 className="text-lg font-semibold text-slate-900">{s.title}</h2>
-                <p className="mt-1 text-sm font-medium text-slate-800">{s.punch}</p>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">{s.desc}</p>
+                <h2 className="text-lg font-semibold text-slate-900">
+                  {s.title}
+                </h2>
+                <p className="mt-1 text-sm font-medium text-slate-800">
+                  {s.punch}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  {s.desc}
+                </p>
 
                 {/* Bullets (bénéfices) */}
                 <ul className="mt-4 space-y-2">
                   {s.bullets.map((b) => (
-                    <li key={b} className="flex items-center gap-2 text-sm text-slate-700">
+                    <li
+                      key={b}
+                      className="flex items-center gap-2 text-sm text-slate-700"
+                    >
                       <Check className="h-4 w-4" style={{ color: ACCENT }} />
                       <span>{b}</span>
                     </li>
@@ -164,11 +170,19 @@ export default function ServicesPage() {
 
                 {/* Livrables */}
                 <div className="mt-5 rounded-xl bg-slate-50 p-4 ring-1 ring-slate-100">
-                  <p className="text-xs font-semibold text-slate-900">Ce qui est inclus</p>
+                  <p className="text-xs font-semibold text-slate-900">
+                    Ce qui est inclus
+                  </p>
                   <ul className="mt-2 space-y-1.5">
                     {s.deliverables.map((d) => (
-                      <li key={d} className="flex items-center gap-2 text-xs text-slate-700">
-                        <span className="h-1.5 w-1.5 rounded-full" style={{ background: ACCENT }} />
+                      <li
+                        key={d}
+                        className="flex items-center gap-2 text-xs text-slate-700"
+                      >
+                        <span
+                          className="h-1.5 w-1.5 rounded-full"
+                          style={{ background: ACCENT }}
+                        />
                         {d}
                       </li>
                     ))}
@@ -213,17 +227,26 @@ export default function ServicesPage() {
 
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {[
-              { t: "1. Comprendre", d: "Un échange simple pour cerner votre besoin et vos objectifs." },
-              { t: "2. Concevoir", d: "Contenu + design + développement. Vous validez à chaque étape." },
-              { t: "3. Mettre en ligne", d: "Mise en production, explications claires, possibilité d’évoluer." },
-            ].map((step, i) => (
+              {
+                t: "1. Comprendre",
+                d: "Un échange simple pour cerner votre besoin et vos objectifs.",
+              },
+              {
+                t: "2. Concevoir",
+                d: "Contenu + design + développement. Vous validez à chaque étape.",
+              },
+              {
+                t: "3. Mettre en ligne",
+                d: "Mise en production, explications claires, possibilité d’évoluer.",
+              },
+            ].map((step, _i) => (
               <motion.div
                 key={step.t}
                 variants={item()}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="rounded-2xl bg-white p-5 ring-1 ring-slate-100 shadow-sm"
+                className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100"
               >
                 <p className="text-sm font-semibold text-slate-900">{step.t}</p>
                 <p className="mt-1 text-sm text-slate-600">{step.d}</p>
@@ -258,14 +281,14 @@ export default function ServicesPage() {
                 q: "Et les délais ?",
                 a: "Selon la taille du projet. Un site vitrine simple peut aller vite une fois les contenus validés.",
               },
-            ].map((f, i) => (
+            ].map((f, _i) => (
               <motion.div
                 key={f.q}
                 variants={item()}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="rounded-2xl bg-white p-5 ring-1 ring-slate-100 shadow-sm"
+                className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-100"
               >
                 <p className="text-sm font-semibold text-slate-900">{f.q}</p>
                 <p className="mt-1 text-sm text-slate-600">{f.a}</p>
@@ -286,13 +309,14 @@ export default function ServicesPage() {
             Parlez-moi de votre projet
           </motion.h3>
           <p className="mx-auto mt-2 max-w-xl text-slate-600">
-            Expliquez votre besoin en 1 minute. Je reviens sous 24&nbsp;h avec une première estimation.
+            Expliquez votre besoin en 1 minute. Je reviens sous 24&nbsp;h avec
+            une première estimation.
           </p>
 
           <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="#contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-semibold text-white bg-gradient-to-b from-slate-900 to-slate-800 shadow-[0_14px_36px_rgba(15,23,42,.22)] transition hover:brightness-110"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-b from-slate-900 to-slate-800 px-7 py-3 text-sm font-semibold text-white shadow-[0_14px_36px_rgba(15,23,42,.22)] transition hover:brightness-110"
             >
               Discutons de votre projet
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

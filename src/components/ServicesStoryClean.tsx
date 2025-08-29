@@ -15,21 +15,33 @@ const STEPS = [
     title: "Avant",
     icon: AlertCircle,
     text: "Un site inexistant ou daté = peu de visibilité et des clients qui passent à côté.",
-    bullets: ["Image peu claire", "Peu de prises de contact", "Mises à jour compliquées"],
+    bullets: [
+      "Image peu claire",
+      "Peu de prises de contact",
+      "Mises à jour compliquées",
+    ],
   },
   {
     k: "avec",
     title: "Avec moi",
     icon: Laptop,
     text: "Création d'un site clair, rapide et pensé mobile & Google. Vos clients vous trouvent facilement.",
-    bullets: ["Design orienté client", "SEO soigné & rapide", "Mise en ligne + accompagnement"],
+    bullets: [
+      "Design orienté client",
+      "SEO soigné & rapide",
+      "Mise en ligne + accompagnement",
+    ],
   },
   {
     k: "apres",
     title: "Après",
     icon: Sparkles,
     text: "Vous gagnez en crédibilité, en visibilité et recevez plus de demandes sans effort supplémentaire.",
-    bullets: ["Image pro & rassurante", "Plus de demandes entrantes", "Site évolutif"],
+    bullets: [
+      "Image pro & rassurante",
+      "Plus de demandes entrantes",
+      "Site évolutif",
+    ],
   },
 ];
 
@@ -48,43 +60,56 @@ function useTilt() {
     const py = (e.clientY - r.top) / r.height;
     const rx = (py - 0.5) * 7;
     const ry = (0.5 - px) * 9;
-    setStyle({ transform: `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg)` });
+    setStyle({
+      transform: `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg)`,
+    });
   }
-  function onLeave() { setStyle({ transform: "perspective(900px) rotateX(0) rotateY(0)" }); }
+  function onLeave() {
+    setStyle({ transform: "perspective(900px) rotateX(0) rotateY(0)" });
+  }
   return { style, onMove, onLeave };
 }
 
 /* Step Card Component */
-function StepCard({ step, index }: { step: typeof STEPS[0], index: number }) {
+function StepCard({ step, index }: { step: (typeof STEPS)[0]; index: number }) {
   const { style, onMove, onLeave } = useTilt();
   const Icon = step.icon;
-  
+
   return (
-    <motion.article 
-      variants={fade()} 
-      initial="hidden" 
-      whileInView="show" 
+    <motion.article
+      variants={fade()}
+      initial="hidden"
+      whileInView="show"
       viewport={{ once: true }}
       className="relative"
     >
-      <div 
-        onMouseMove={onMove} 
-        onMouseLeave={onLeave} 
+      <div
+        onMouseMove={onMove}
+        onMouseLeave={onLeave}
         style={style}
         className="group relative rounded-2xl bg-white p-6 shadow-[0_14px_36px_rgba(15,23,42,.10)] ring-1 ring-slate-100 transition-all duration-300 hover:shadow-[0_22px_70px_rgba(2,6,23,.16)]"
       >
         {/* Icon badge */}
-        <div className="relative mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-white ring-1 ring-slate-200 shadow-sm">
+        <div className="relative mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-slate-200">
           <Icon className="h-8 w-8 text-slate-800" />
-          <span className="absolute -bottom-6 text-sm font-semibold text-slate-500">{index + 1}</span>
+          <span className="absolute -bottom-6 text-sm font-semibold text-slate-500">
+            {index + 1}
+          </span>
         </div>
 
-        <h3 className="text-center text-xl font-semibold text-slate-900">{step.title}</h3>
-        <p className="mt-3 text-center text-sm leading-relaxed text-slate-600">{step.text}</p>
+        <h3 className="text-center text-xl font-semibold text-slate-900">
+          {step.title}
+        </h3>
+        <p className="mt-3 text-center text-sm leading-relaxed text-slate-600">
+          {step.text}
+        </p>
 
         <ul className="mx-auto mt-5 max-w-sm space-y-2">
           {step.bullets.map((b) => (
-            <li key={b} className="flex items-center justify-center gap-2 text-sm text-slate-700">
+            <li
+              key={b}
+              className="flex items-center justify-center gap-2 text-sm text-slate-700"
+            >
               <Check className="h-4 w-4" style={{ color: ACCENT }} />
               <span>{b}</span>
             </li>
@@ -100,22 +125,26 @@ export default function ServicesStoryClean() {
   const railRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="services" className="relative px-4 py-20 md:px-6" ref={railRef}>
+    <section
+      id="services"
+      className="relative px-4 py-20 md:px-6"
+      ref={railRef}
+    >
       <div className="mx-auto max-w-6xl">
-        
         {/* Header */}
-        <motion.div 
-          variants={fade()} 
-          initial="hidden" 
-          whileInView="show" 
+        <motion.div
+          variants={fade()}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true }}
-          className="text-center mb-10 md:mb-12"
+          className="mb-10 text-center md:mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
+          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
             Un site clair qui vous apporte des demandes
           </h2>
           <p className="mt-3 text-lg text-slate-600">
-            Je m&rsquo;occupe du design, du contenu et de la mise en ligne — vous gardez la main sans complexité.
+            Je m&rsquo;occupe du design, du contenu et de la mise en ligne —
+            vous gardez la main sans complexité.
           </p>
         </motion.div>
 
@@ -127,23 +156,31 @@ export default function ServicesStoryClean() {
         </div>
 
         {/* CTA final unique */}
-        <motion.div 
-          variants={fade()} 
-          initial="hidden" 
-          whileInView="show" 
+        <motion.div
+          variants={fade()}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true }}
           className="mt-14 text-center"
         >
-          <h3 className="text-xl font-semibold text-slate-900">Prêt·e à passer à l&rsquo;action&nbsp;?</h3>
-          <p className="mx-auto mt-2 max-w-xl text-slate-600">Décrivez votre projet en 1 minute. Réponse sous 24&nbsp;h.</p>
+          <h3 className="text-xl font-semibold text-slate-900">
+            Prêt·e à passer à l&rsquo;action&nbsp;?
+          </h3>
+          <p className="mx-auto mt-2 max-w-xl text-slate-600">
+            Décrivez votre projet en 1 minute. Réponse sous 24&nbsp;h.
+          </p>
           <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link href="#contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-semibold text-white bg-gradient-to-b from-slate-900 to-slate-800 shadow-[0_14px_36px_rgba(15,23,42,.22)] transition hover:brightness-110">
+            <Link
+              href="#contact"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-b from-slate-900 to-slate-800 px-7 py-3 text-sm font-semibold text-white shadow-[0_14px_36px_rgba(15,23,42,.22)] transition hover:brightness-110"
+            >
               Discutons de votre projet
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5"/>
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
-            <Link href="#projects"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 transition hover:bg-slate-50 hover:ring-slate-300">
+            <Link
+              href="#projects"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 transition hover:bg-slate-50 hover:ring-slate-300"
+            >
               Voir des exemples
             </Link>
           </div>

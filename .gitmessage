@@ -1,0 +1,16 @@
+# Conventional Commit template
+# ----------------------------
+# Types: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert
+# Optional scopes: feat(ui):, fix(api):, etc.
+# Subject: imperative, lower case, no final period.
+
+feat(scope): short subject line
+
+# Body (optional):
+# - What / Why / How
+# - Breaking change or side effects
+
+# Footer (optional):
+# - Closes #123
+# - BREAKING CHANGE: describe breaking change
+

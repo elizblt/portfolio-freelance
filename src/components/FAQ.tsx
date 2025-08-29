@@ -59,7 +59,7 @@ export default function FAQ() {
         id: `faq-${i + 1}`,
         ...f,
       })),
-    []
+    [],
   );
 
   // JSON-LD SEO
@@ -73,25 +73,25 @@ export default function FAQ() {
         acceptedAnswer: { "@type": "Answer", text: f.answer },
       })),
     }),
-    [faqs]
+    [faqs],
   );
 
   return (
-    <section id="faq" className="py-16 md:py-20 px-4 md:px-6">
+    <section id="faq" className="px-4 py-16 md:px-6 md:py-20">
       {/* SEO JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="max-w-4xl mx-auto">
+      <div className="mx-auto max-w-4xl">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="mb-12 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-4xl font-extrabold text-gray-900"
+            className="text-2xl font-extrabold text-gray-900 md:text-4xl"
           >
             Questions fréquentes
           </motion.h2>
@@ -117,16 +117,15 @@ export default function FAQ() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.04 }}
-                className={`rounded-2xl border ring-1 bg-white shadow-sm overflow-hidden transition-all
-                  ${isOpen ? "border-gray-200 ring-gray-200" : "border-gray-100 ring-gray-100 hover:shadow-md"}`}
+                className={`overflow-hidden rounded-2xl border bg-white shadow-sm ring-1 transition-all ${isOpen ? "border-gray-200 ring-gray-200" : "border-gray-100 ring-gray-100 hover:shadow-md"}`}
               >
                 <button
-                  className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900"
+                  className="flex w-full items-center justify-between px-6 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900"
                   aria-expanded={isOpen}
                   aria-controls={`${f.id}-panel`}
                   onClick={() => setOpen(isOpen ? null : f.id)}
                 >
-                  <h3 className="text-base md:text-lg font-semibold text-gray-900 pr-6">
+                  <h3 className="pr-6 text-base font-semibold text-gray-900 md:text-lg">
                     {f.question}
                   </h3>
                   <ChevronDown
@@ -149,7 +148,9 @@ export default function FAQ() {
                       className="overflow-hidden"
                     >
                       <div className="px-6 pb-6">
-                        <p className="text-gray-600 text-sm leading-relaxed">{f.answer}</p>
+                        <p className="text-sm leading-relaxed text-gray-600">
+                          {f.answer}
+                        </p>
                       </div>
                     </motion.div>
                   )}
@@ -167,20 +168,30 @@ export default function FAQ() {
           className="mt-12 text-center"
         >
           <div className="rounded-2xl border border-gray-100 bg-white/70 p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
-            <h3 className="text-xl font-semibold text-gray-900">Une autre question ?</h3>
+            <h3 className="text-xl font-semibold text-gray-900">
+              Une autre question ?
+            </h3>
             <p className="mt-2 text-gray-600">
-              Écrivez-moi un message rapide : je vous réponds sous 24&nbsp;h ouvrées.
+              Écrivez-moi un message rapide : je vous réponds sous 24&nbsp;h
+              ouvrées.
             </p>
             <a
               href="#contact"
-              className="mt-6 inline-flex items-center justify-center gap-2 rounded-full
-                         bg-neutral-950 px-7 py-3 text-sm font-semibold text-white
-                         ring-1 ring-neutral-900 transition-all duration-200
-                         hover:scale-[1.02] hover:shadow-[0_12px_40px_rgba(0,0,0,0.14)]"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-neutral-950 px-7 py-3 text-sm font-semibold text-white ring-1 ring-neutral-900 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_12px_40px_rgba(0,0,0,0.14)]"
             >
               Me contacter
-              <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M5 12h14M13 5l7 7-7 7"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </a>
           </div>

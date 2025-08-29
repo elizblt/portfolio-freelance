@@ -57,7 +57,6 @@ const STEPS: Step[] = [
 ];
 
 export default function Process() {
-
   return (
     <section
       id="process"

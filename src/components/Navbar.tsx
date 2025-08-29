@@ -1,22 +1,22 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
-import clsx from 'clsx';
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import clsx from "clsx";
 
 const navItems = [
-  { name: 'Accueil', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'Projets', href: '#projects' },
-  { name: 'Méthode', href: '#process' },
-  { name: 'FAQ', href: '#faq' },
+  { name: "Accueil", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "Projets", href: "#projects" },
+  { name: "Méthode", href: "#process" },
+  { name: "FAQ", href: "#faq" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [active, setActive] = useState<string>('#hero');
+  const [active, setActive] = useState<string>("#hero");
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
@@ -26,20 +26,20 @@ export default function Navbar() {
 
   // Helper function to determine if nav item should be active
   const isActiveItem = (href: string) => {
-    if (href === '/' && pathname === '/') return true;
-    if (href === '/services' && pathname === '/services') return true;
-    if (href.startsWith('#') && pathname === '/') return active === href;
+    if (href === "/" && pathname === "/") return true;
+    if (href === "/services" && pathname === "/services") return true;
+    if (href.startsWith("#") && pathname === "/") return active === href;
     return false;
   };
 
   // lock body scroll when mobile menu open + Esc to close
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
-    const onEsc = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
-    window.addEventListener('keydown', onEsc);
+    document.body.style.overflow = open ? "hidden" : "";
+    const onEsc = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onEsc);
     return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', onEsc);
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onEsc);
     };
   }, [open]);
 
@@ -56,7 +56,7 @@ export default function Navbar() {
 
       // scrollspy
       const positions = navItems
-        .filter(i => i.href.startsWith('#'))
+        .filter((i) => i.href.startsWith("#"))
         .map(({ href }) => {
           const el = document.querySelector(href);
           if (!el) return { href, top: Number.POSITIVE_INFINITY };
@@ -67,38 +67,44 @@ export default function Navbar() {
       const offset = 120;
       const current = positions
         .sort((a, b) => a.top - b.top)
-        .filter(p => y + offset >= p.top)
+        .filter((p) => y + offset >= p.top)
         .pop();
 
-      setActive(current?.href ?? '#hero');
+      setActive(current?.href ?? "#hero");
     };
 
     onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
     };
   }, []);
 
   const smoothTo = (href: string) => {
     setOpen(false);
-    if (!href.startsWith('#')) {
+    if (!href.startsWith("#")) {
       window.location.href = href;
       return;
     }
     const target = document.querySelector(href);
     if (!target) return;
     const headerH = navRef.current?.getBoundingClientRect().height ?? 72;
-    const top = (target as HTMLElement).getBoundingClientRect().top + window.scrollY - (headerH + 8);
-    window.scrollTo({ top, behavior: 'smooth' });
+    const top =
+      (target as HTMLElement).getBoundingClientRect().top +
+      window.scrollY -
+      (headerH + 8);
+    window.scrollTo({ top, behavior: "smooth" });
   };
 
   return (
     <>
       {/* Skip link */}
-      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] rounded-md bg-neutral-900 px-3 py-2 text-white">
+      <a
+        href="#main"
+        className="sr-only rounded-md bg-neutral-900 px-3 py-2 text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60]"
+      >
         Aller au contenu
       </a>
 
@@ -106,51 +112,59 @@ export default function Navbar() {
         ref={navRef}
         data-nav
         className={clsx(
-          'fixed inset-x-0 top-0 z-50 transition-transform duration-300',
-          visible ? 'translate-y-0' : '-translate-y-full'
+          "fixed inset-x-0 top-0 z-50 transition-transform duration-300",
+          visible ? "translate-y-0" : "-translate-y-full",
         )}
         aria-label="Navigation principale"
       >
         <div
           className={clsx(
-            'mx-auto max-w-6xl px-4 md:px-6',
-            'backdrop-blur supports-[backdrop-filter]:bg-white/70',
-            'border-b',
-            scrolled ? 'bg-white/80 border-gray-200' : 'bg-white/40 border-transparent'
+            "mx-auto max-w-6xl px-4 md:px-6",
+            "backdrop-blur supports-[backdrop-filter]:bg-white/70",
+            "border-b",
+            scrolled
+              ? "border-gray-200 bg-white/80"
+              : "border-transparent bg-white/40",
           )}
         >
-          <div className="flex h-16 md:h-20 items-center justify-between">
+          <div className="flex h-16 items-center justify-between md:h-20">
             {/* Brand */}
             <Link
               href="/"
-              className="font-extrabold tracking-tight text-gray-900 text-lg md:text-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 rounded"
+              className="rounded text-lg font-extrabold tracking-tight text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 md:text-xl"
             >
               Élise Boillat
             </Link>
 
             {/* Desktop nav */}
-            <ul className="hidden md:flex items-center gap-7">
+            <ul className="hidden items-center gap-7 md:flex">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  {item.href.startsWith('#') ? (
+                  {item.href.startsWith("#") ? (
                     <a
                       href={item.href}
                       onClick={(e) => {
                         e.preventDefault();
                         smoothTo(item.href);
                       }}
-                      aria-current={isActiveItem(item.href) ? 'page' : undefined}
+                      aria-current={
+                        isActiveItem(item.href) ? "page" : undefined
+                      }
                       className={clsx(
-                        'relative inline-flex items-center text-sm font-medium transition-colors',
-                        isActiveItem(item.href) ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'
+                        "relative inline-flex items-center text-sm font-medium transition-colors",
+                        isActiveItem(item.href)
+                          ? "text-gray-900"
+                          : "text-gray-600 hover:text-gray-900",
                       )}
                     >
                       {item.name}
                       {/* underline indicator */}
                       <span
                         className={clsx(
-                          'absolute -bottom-1 left-0 h-[2px] rounded-full bg-gray-900 transition-all',
-                          isActiveItem(item.href) ? 'w-full opacity-100' : 'w-0 opacity-0'
+                          "absolute -bottom-1 left-0 h-[2px] rounded-full bg-gray-900 transition-all",
+                          isActiveItem(item.href)
+                            ? "w-full opacity-100"
+                            : "w-0 opacity-0",
                         )}
                       />
                     </a>
@@ -158,16 +172,20 @@ export default function Navbar() {
                     <Link
                       href={item.href}
                       className={clsx(
-                        'relative inline-flex items-center text-sm font-medium transition-colors',
-                        isActiveItem(item.href) ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'
+                        "relative inline-flex items-center text-sm font-medium transition-colors",
+                        isActiveItem(item.href)
+                          ? "text-gray-900"
+                          : "text-gray-600 hover:text-gray-900",
                       )}
                     >
                       {item.name}
                       {/* underline indicator */}
                       <span
                         className={clsx(
-                          'absolute -bottom-1 left-0 h-[2px] rounded-full bg-gray-900 transition-all',
-                          isActiveItem(item.href) ? 'w-full opacity-100' : 'w-0 opacity-0'
+                          "absolute -bottom-1 left-0 h-[2px] rounded-full bg-gray-900 transition-all",
+                          isActiveItem(item.href)
+                            ? "w-full opacity-100"
+                            : "w-0 opacity-0",
                         )}
                       />
                     </Link>
@@ -181,7 +199,7 @@ export default function Navbar() {
                   href="#contact"
                   onClick={(e) => {
                     e.preventDefault();
-                    smoothTo('#contact');
+                    smoothTo("#contact");
                   }}
                   className="inline-flex items-center rounded-full bg-neutral-950 px-4 py-2 text-sm font-semibold text-white ring-1 ring-neutral-900 transition hover:scale-[1.02]"
                 >
@@ -192,7 +210,7 @@ export default function Navbar() {
 
             {/* Burger */}
             <button
-              className="md:hidden p-2 -m-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900"
+              className="-m-2 rounded p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 md:hidden"
               aria-label="Ouvrir le menu"
               aria-expanded={open}
               onClick={() => setOpen(true)}
@@ -213,8 +231,10 @@ export default function Navbar() {
       {/* Overlay */}
       <div
         className={clsx(
-          'fixed inset-0 z-40 bg-black/30 backdrop-blur-sm transition-opacity md:hidden',
-          open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          "fixed inset-0 z-40 bg-black/30 backdrop-blur-sm transition-opacity md:hidden",
+          open
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0",
         )}
         onClick={() => setOpen(false)}
         aria-hidden
@@ -226,14 +246,14 @@ export default function Navbar() {
         aria-modal="true"
         aria-label="Menu"
         className={clsx(
-          'fixed top-0 right-0 z-50 h-full w-80 max-w-[84vw] bg-white shadow-2xl md:hidden transition-transform duration-300 ease-out',
-          open ? 'translate-x-0' : 'translate-x-full'
+          "fixed top-0 right-0 z-50 h-full w-80 max-w-[84vw] bg-white shadow-2xl transition-transform duration-300 ease-out md:hidden",
+          open ? "translate-x-0" : "translate-x-full",
         )}
       >
-        <div className="flex items-center justify-between px-5 h-16 border-b border-gray-100">
+        <div className="flex h-16 items-center justify-between border-b border-gray-100 px-5">
           <span className="font-semibold text-gray-900">Menu</span>
           <button
-            className="p-2 -m-2 rounded text-gray-600 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900"
+            className="-m-2 rounded p-2 text-gray-600 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900"
             onClick={() => setOpen(false)}
             aria-label="Fermer le menu"
           >
@@ -242,8 +262,8 @@ export default function Navbar() {
         </div>
 
         <nav className="py-2">
-          {navItems.map((item) => (
-            item.href.startsWith('#') ? (
+          {navItems.map((item) =>
+            item.href.startsWith("#") ? (
               <a
                 key={item.href}
                 href={item.href}
@@ -252,12 +272,12 @@ export default function Navbar() {
                   smoothTo(item.href);
                 }}
                 className={clsx(
-                  'block px-5 py-4 text-base font-medium transition',
+                  "block px-5 py-4 text-base font-medium transition",
                   isActiveItem(item.href)
-                    ? 'text-gray-900 bg-gray-50 border-l-4 border-neutral-900'
-                    : 'text-gray-700 hover:bg-gray-50'
+                    ? "border-l-4 border-neutral-900 bg-gray-50 text-gray-900"
+                    : "text-gray-700 hover:bg-gray-50",
                 )}
-                aria-current={isActiveItem(item.href) ? 'page' : undefined}
+                aria-current={isActiveItem(item.href) ? "page" : undefined}
               >
                 {item.name}
               </a>
@@ -266,23 +286,23 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={clsx(
-                  'block px-5 py-4 text-base font-medium transition',
+                  "block px-5 py-4 text-base font-medium transition",
                   isActiveItem(item.href)
-                    ? 'text-gray-900 bg-gray-50 border-l-4 border-neutral-900'
-                    : 'text-gray-700 hover:bg-gray-50'
+                    ? "border-l-4 border-neutral-900 bg-gray-50 text-gray-900"
+                    : "text-gray-700 hover:bg-gray-50",
                 )}
               >
                 {item.name}
               </Link>
-            )
-          ))}
+            ),
+          )}
 
           <div className="px-5 pt-2">
             <a
               href="#contact"
               onClick={(e) => {
                 e.preventDefault();
-                smoothTo('#contact');
+                smoothTo("#contact");
               }}
               className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-neutral-950 px-4 py-2.5 text-sm font-semibold text-white ring-1 ring-neutral-900"
             >
@@ -291,7 +311,7 @@ export default function Navbar() {
           </div>
         </nav>
 
-        <div className="absolute bottom-0 left-0 right-0 border-t border-gray-100 p-5 text-xs text-gray-500">
+        <div className="absolute right-0 bottom-0 left-0 border-t border-gray-100 p-5 text-xs text-gray-500">
           Développeuse web freelance — disponible pour nouveaux projets.
         </div>
       </aside>

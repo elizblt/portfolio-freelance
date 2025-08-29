@@ -16,6 +16,7 @@ This is a Next.js 15 portfolio website for Elise Boillat, a freelance web develo
 ## Architecture and Structure
 
 ### Tech Stack
+
 - **Framework**: Next.js 15 (App Router)
 - **Styling**: Tailwind CSS with custom configuration
 - **Animations**: Framer Motion
@@ -24,6 +25,7 @@ This is a Next.js 15 portfolio website for Elise Boillat, a freelance web develo
 - **Utilities**: clsx + tailwind-merge via `cn()` utility
 
 ### Project Structure
+
 ```
 src/
 ├── app/
@@ -47,8 +49,9 @@ src/
 ```
 
 ### Design System
+
 - **Colors**: Custom "arsen" color palette defined in Tailwind config
-  - Background: `#f9f9f9` 
+  - Background: `#f9f9f9`
   - Primary text: `#111111`
   - Secondary text: `#666666`
   - Accent: `#22c55e` (green)
@@ -56,6 +59,7 @@ src/
 - **Component Pattern**: Single-file components with inline Framer Motion animations
 
 ### Key Features
+
 - Responsive design with mobile-first approach
 - Scroll-based navbar visibility and active state management
 - Smooth animations using Framer Motion
@@ -66,41 +70,50 @@ src/
 ## Configuration Files
 
 ### Tailwind CSS
+
 Custom configuration in `tailwind.config.ts` with:
+
 - General Sans font family setup
 - Custom color palette (arsen theme)
 - Content paths for src and components directories
 
 ### shadcn/ui Integration
+
 Configured via `components.json` with:
+
 - New York style
 - TypeScript and RSC enabled
 - Path aliases for components and utilities
 
 ### Deployment
+
 - Configured for Netlify deployment via `netlify.toml`
 - Uses `@netlify/plugin-nextjs` for optimized builds
 
 ## Development Notes
 
 ### Styling Approach
+
 - Uses Tailwind utility classes extensively
 - Custom animations with Framer Motion for interactive elements
 - Consistent spacing and typography scale
 - Mobile-responsive design patterns
 
 ### Component Architecture
+
 - All components are client components using "use client" directive
 - Flat component structure (no nested directories)
 - Each major section is a separate component
 - Reusable utilities in `/lib/utils.ts`
 
 ### State Management
+
 - Local state with React hooks (useState, useEffect)
 - No external state management library
 - Scroll position tracking for navbar behavior
 
 When working with this codebase:
+
 - Follow the established French language patterns for content
 - Maintain the clean, minimal design aesthetic
 - Use Framer Motion for animations to match existing patterns

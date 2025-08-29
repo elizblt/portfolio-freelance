@@ -28,7 +28,7 @@ export interface AnimationConfig {
   readonly delay: number;
 }
 
-export type ButtonVariant = 'primary' | 'secondary';
+export type ButtonVariant = "primary" | "secondary";
 
 export interface ButtonProps {
   readonly href: string;
